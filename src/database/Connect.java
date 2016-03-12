@@ -15,7 +15,7 @@ public class Connect {
 
 	public Connect() {
 		this.host = "jdbc:mysql://localhost:3306/";
-		this.dbname = "db_planalimenticio";
+		this.dbname = "DBPA";
 		this.username = "root";
 		this.password = "";
 		this.conn = null;
@@ -24,7 +24,7 @@ public class Connect {
     public Connection getConnection() throws SQLException {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection(this.host, this.username, this.password);
+            conn = DriverManager.getConnection(this.host + this.dbname, this.username, this.password);
             System.out.println("Conexion exitosa a base de datos...");
         } catch (ClassNotFoundException | SQLException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
@@ -32,7 +32,7 @@ public class Connect {
         return conn;
     }
 	
-	public boolean closeConnection() {
+	public boolean closeConnection() throws SQLException {
 		try {
 			this.conn.close();
 			return true;

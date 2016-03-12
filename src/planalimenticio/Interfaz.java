@@ -5,7 +5,12 @@
  */
 package planalimenticio;
 
+import database.Connect;
 import java.awt.event.KeyEvent;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  *
@@ -361,7 +366,10 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_txtcaderaKeyTyped
 
     private void btncalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncalcularActionPerformed
-        
+		// ELIMINAR INSTRUCCION Y FUNCION.
+		// SOLO ES PARA LA PRUEBA A LA CONEXION A LA BASE DE DATOS.
+		testConnectionDB();
+		
         double altura,peso,cintura,cuello,cadera,nivelact=0;
         String sexo="",snivelact="";
         altura = Double.parseDouble(txtaltura.getText());
@@ -462,4 +470,25 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JTextField txtcuello;
     private javax.swing.JTextField txtpeso;
     // End of variables declaration//GEN-END:variables
+
+	
+	// ELIMINARA ESTA FUNCION
+	private void testConnectionDB() {
+		try {
+			Connect connect = new Connect();
+			Connection conn = connect.getConnection();
+			if(conn.isClosed()) {
+				System.out.println("No se pudo conectar.. :(");
+			} else {
+				System.out.println("Recuperando algunos registros:");
+				Statement stm = conn.createStatement();
+				ResultSet results = stm.executeQuery("SELECT Tipo, Nombre, Calorias FROM Alimentos WHERE Id_Alimentos<10");
+				while(results.next()) {
+					System.out.println(results.getString("Tipo") + "\t" + results.getString("Nombre") + "\t" + results.getString("Calorias"));
+				}
+			}
+		} catch (SQLException ex) {
+			System.out.println("Error: " + ex.getMessage());
+		}
+	}
 }
