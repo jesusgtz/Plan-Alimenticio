@@ -476,15 +476,16 @@ public class Interfaz extends javax.swing.JFrame {
 	private void testConnectionDB() {
 		try {
 			Connect connect = new Connect();
-			Connection conn = connect.getConnection();
-			if(conn.isClosed()) {
-				System.out.println("No se pudo conectar.. :(");
+			
+			if(connect.isClosed()) {
+				System.out.println("No se pudo conectar a la base de datos :'(");
 			} else {
 				System.out.println("Recuperando algunos registros:");
-				Statement stm = conn.createStatement();
-				ResultSet results = stm.executeQuery("SELECT Tipo, Nombre, Calorias FROM Alimentos WHERE Id_Alimentos<10");
-				while(results.next()) {
-					System.out.println(results.getString("Tipo") + "\t" + results.getString("Nombre") + "\t" + results.getString("Calorias"));
+				ResultSet results = connect.Select("SELECT Tipo, Nombre, Calorias FROM Alimentos WHERE Id_Alimentos<10");
+				if(results != null) {
+					while(results.next()) {
+						System.out.println(results.getString("Tipo") + "\t" + results.getString("Nombre") + "\t" + results.getString("Calorias"));
+					}
 				}
 			}
 		} catch (SQLException ex) {
