@@ -19,3 +19,10 @@ Sistema experto para dietas
 
 * Java JDK 1.8
 * Netbeans IDE 8.1
+
+# Instrucciones de Ejecucion
+## Inicializacion de Base de Datos (phpmyadmin)
+1. Arrancar phpmyadmin.
+2. Dar click en 'Importar'.
+3. Seleccionar archivo DB/script.sql y dar click en cargar.
+4. Enjoy!!
