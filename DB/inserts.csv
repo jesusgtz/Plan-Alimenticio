@@ -1,0 +1,100 @@
+NULL,Carne Roja,Asado Magro de Res,240,Una unidad
+NULL,Carne Roja,Carne Molida de Res,120,Cuatro Cucharadas
+NULL,Carne Roja,Filete magro de cerdo,198,Un filete
+NULL,Carne Roja,Filete gordo de cerdo,340,Un filete
+NULL,Carne Roja,Tocino,500,3 tiras
+NULL,Carne Blanca,Pechuga de pollo magra,320,Una pechuga
+NULL,Carne Blanca,Pierna de Pollo magra,120,Una unidad
+NULL,Carne Blanca,Hamburguesa de pollo,310,Una unidad
+NULL,Embutidos,Salchicha vienna,160,Unidad
+NULL,Embutidos,Jamón,90,Lonja
+NULL,Embutidos,Mortadela,310,100 gramos
+NULL,Embutidos,Salchicha light,140,Unidad
+NULL,Pescados y Mariscos,Trucha,132,filete
+NULL,Pescados y Mariscos,Pejerrey,82,Filete pequeño
+NULL,Pescados y Mariscos,Atún al agua,144,Lata
+NULL,Pescados y Mariscos,Atún al aceite,250,3 onzas
+NULL,Pescados y Mariscos,Sardinas,160,3 onzas
+NULL,Pescados y Mariscos,Camarones,52,Media taza
+NULL,Pescados y Mariscos,Pulpo,50,Media taza
+NULL,Pescados y Mariscos,Calamar,78,100 gramos
+NULL,Pescados y Mariscos,Cangrejo,135,Unidad
+NULL,Pescados y Mariscos,Almejas,78,100 gramos
+NULL,Lacteos,Leche entera,114,Una taza
+NULL,Lacteos,Leche descremada,90,Una taza
+NULL,Lacteos,Leche evaporada,180,Una taza
+NULL,Lacteos,Leche chocolatada,124,Una taza
+NULL,Lacteos,Leche de Soya,79,Una taza
+NULL,Lacteos,Yogurt frutado,142,Una taza
+NULL,Lacteos,Yogurt con cereal,230,Una taza
+NULL,Lacteos,Yogurt descremado,218,Una taza
+NULL,Lacteos,Queso Parmesano,88,Una cucharada
+NULL,Lacteos,Queso mozzarella,334,100 gramos
+NULL,Lacteos,Queso Fresco,97,Tajada
+NULL,Lacteos,Queso Cheddar,77,Tajada
+NULL,Lacteos,Queso Crema,50,Una cucharada
+NULL,Lacteos,Queso Dambo,350,100 gramos
+NULL,Huevo,Clara,13,Una porción
+NULL,Huevo,Yema,64,Una porción
+NULL,Frutas,Manzana,60,Unidad
+NULL,Frutas,Pera,60,Unidad
+NULL,Frutas,Naranja,65,Unidad
+NULL,Frutas,Plátano,85,100 gramos
+NULL,Frutas,Piña,46,Una taza
+NULL,Frutas,Sandia,60,Una taza
+NULL,Frutas,Chirimoya,180,Unidad
+NULL,Frutas,Papaya,60,Una taza
+NULL,Frutas,Mandarina,65,Unidad
+NULL,Frutas,Higo,30,Unidad
+NULL,Frutas,Durazno,70,Unidad
+NULL,Frutas,Frutilla,50,Una taza
+NULL,Frutas,Mango,130,Unidad
+NULL,Frutas,Melón,50,Unidad
+NULL,Vegetales,Apio,50,Unidad
+NULL,Vegetales,Lechuga,13,Un puñado
+NULL,Vegetales,Zanahoria,44,Unidad
+NULL,Vegetales,Tomate,13,Unidad
+NULL,Vegetales,Alcachofa,55,Unidad
+NULL,Vegetales,Zapallo,82,Media taza
+NULL,Vegetales,Espinaca,12,Media taza
+NULL,Vegetales,Rábano,8,Media taza
+NULL,Vegetales,Brócoli,56,Media taza
+NULL,Vegetales,Choclo,140,Media taza
+NULL,Vegetales,Palta,90,Unidad
+NULL,Vegetales,Palmito,52,Puñado
+NULL,Vegetales,Pepino,15,100 gramos
+NULL,Vegetales,Repollo,24,100 gramos
+NULL,Vegetales,Cebolla,38,Puñado
+NULL,Tuberculos y Raices,Papa blanca,90,Unidad
+NULL,Tuberculos y Raices,Yuca,160,Trozo mediano
+NULL,Tuberculos y Raices,Papa amarilla,110,Una taza
+NULL,Tuberculos y Raices,camote,115,Unidad
+NULL,Rico en Azucares,Fideo,280,Plato
+NULL,Rico en Azucares,Tallarines al huevo,280,100 gramos(porción)
+NULL,Rico en Azucares,Fideo diet,270,100 gramos(porción)
+NULL,Rico en Azucares,Fideo de harina integral,360,100 gramos(porción)
+NULL,Rico en Azucares,Arroz,230,Taza
+NULL,Rico en Azucares,Cereal hojuelas,109,Taza (variable)
+NULL,Rico en Azucares,Pan molde,80,Tajada
+NULL,Rico en Azucares,Pan francés,116,Unidad (sin miga)
+NULL,Aceites y Grasas,Mantequilla,90,Una cucharada
+NULL,Aceites y Grasas,Mantequilla Light,45,Una cucharada
+NULL,Aceites y Grasas,Aceite vegetal,63,Una cucharada
+NULL,Aceites y Grasas,Aceite de oliva,860,Media taza
+NULL,Aceites y Grasas,Aceitunas,15,Unidad
+NULL,Aceites y Grasas,Crema de leche,50,Cucharada
+NULL,Salsas,Mayonesa,90,Cucharada
+NULL,Salsas,Mayonesa Light,50,Cucharada
+NULL,Salsas,Mostaza,75,Media taza
+NULL,Salsas,Salsa de Tomate,150,Media taza
+NULL,Otros,Pollo broaster,765,Porción unidad
+NULL,Otros,Hamburguesa con Queso,310,Unidad
+NULL,Otros,Papas fritas,250,Porción mediana
+NULL,Otros,Pizza,400,Porción
+NULL,Otros,Pastel de chocolate,290,Tajada
+NULL,Otros,Chocolate amargo,570,100 gramos
+NULL,Otros,Gaseosa,90,Vaso
+NULL,Otros,Cerveza,120,Tarro
+NULL,Otros,Taco mexicano,560,Unidad
+NULL,Otros,Maní,600,Puñado
+NULL,Otros,Palitos salados,590,Puñado
