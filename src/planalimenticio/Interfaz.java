@@ -1,38 +1,33 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package planalimenticio;
 
 import database.Connect;
-import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 
 /**
  *
- * @author Miguel
+ * @author Equipo1
  */
-public class Interfaz extends javax.swing.JFrame {
+class Interfaz extends javax.swing.JFrame {
+	
+	private double 
+			IMC,
+			PGC,
+			MCM,
+			TMB,
+			CxD,
+			PxD;
 
-    /**
-     * Creates new form Interfaz
-     * 
-     */
-    public Interfaz() {
+    Interfaz() {
         initComponents();
         pnlresultados.hide();
         btnSiguiente.setVisible(false);
         rbtnmasculino.setSelected(true);
         txtcadera.enable(false);
     }
-    double IMC,PGC,MCM,TMB,CxD,PxD;
-    Operaciones obj = new Operaciones();
+	
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -360,10 +355,6 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_txtcuelloKeyTyped
 
     private void btncalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncalcularActionPerformed
-
-		// ELIMINAR INSTRUCCION Y FUNCION.
-		// SOLO ES PARA LA PRUEBA A LA CONEXION A LA BASE DE DATOS.
-		testConnectionDB();
 		
         double altura,peso,cintura,cuello,cadera = 0,nivelact=0;
 
@@ -381,33 +372,43 @@ public class Interfaz extends javax.swing.JFrame {
                     if(txtcuello.getText().isEmpty()) JOptionPane.showMessageDialog(null, "Campo cuello vacio");
                     else {
                         cuello = Double.parseDouble(txtcuello.getText());
-                        if(rbtnmasculino.isSelected())
-                            sexo="Masculino";
-                        else if(rbtnfemenino.isSelected()){
-                            sexo="Femenino";
+                        if(rbtnmasculino.isSelected()) sexo = "Masculino";
+                        else if(rbtnfemenino.isSelected()) {
+                            sexo = "Femenino";
                             if(txtcadera.getText().isEmpty()) JOptionPane.showMessageDialog(null, "Campo cadera vacio");
                             else  cadera = Double.parseDouble(txtcadera.getText());
                         }
                         snivelact=(String)cmbnivelact.getSelectedItem();
-                        System.out.println("SNIVEL"+snivelact+"V");
-                        switch(snivelact){
-                            case "Sedentario":nivelact=1.2;break;
-                            case "Ligero":nivelact=1.375;break;
-                            case "Moderado":nivelact=1.55;break;
-                            case "Intensa":nivelact=1.725;break;
-                                        }
-                        System.out.println("Nivel de act"+nivelact+snivelact);
-                        System.out.println("SEXO"+sexo);
-                        IMC= obj.IMC(peso,altura);
-                        PGC= obj.PGC(cintura, cuello, altura, cadera, sexo);
-                        MCM= obj.MCM(peso, PGC);
-                        TMB= obj.TMB(MCM);
-                        CxD= obj.CxD(TMB,nivelact);
-                        PxD= obj.PxD(peso);
-                        System.out.println("PGC"+PGC);
-                        lblIMC.setText(String.valueOf(Math.rint(IMC*100)/100));
-                        lblproteinas.setText(String.valueOf(Math.rint(PxD*100)/100));
-                        lblcalorias.setText(String.valueOf(Math.round(CxD)));
+                        switch(snivelact) {
+                            case "Sedentario":
+								nivelact=1.2;
+								break;
+                            case "Ligero":
+								nivelact=1.375;
+								break;
+                            case "Moderado":
+								nivelact=1.55;
+								break;
+                            case "Intensa":
+								nivelact=1.725;
+								break;
+						}
+						
+                        IMC = Math.rint(Operaciones.IMC(peso,altura) * 100) / 100;
+                        PGC = Operaciones.PGC(cintura, cuello, altura, cadera, sexo);
+                        MCM = Operaciones.MCM(peso, PGC);
+                        TMB = Operaciones.TMB(MCM);
+                        CxD = Math.round(Operaciones.CxD(TMB, nivelact));
+                        PxD = Math.rint(Operaciones.PxD(peso) * 100) / 100;
+                        
+						System.out.println("Sexo: "+ sexo);
+                        System.out.println("Nivel de act.: "+ nivelact + "  ("+ snivelact +")");
+						System.out.println("PGC: "+ PGC);
+						System.out.println("IMC: "+ IMC);
+						
+                        lblIMC.setText(String.valueOf(IMC));
+                        lblproteinas.setText(String.valueOf(PxD));
+                        lblcalorias.setText(String.valueOf(CxD));
                         pnlresultados.show();
                         btnSiguiente.setVisible(true);
                     }
@@ -472,11 +473,9 @@ public class Interfaz extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Interfaz().setVisible(true);
-            }
-        });
+        java.awt.EventQueue.invokeLater(() -> {
+			new Interfaz().setVisible(true);
+		});
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
