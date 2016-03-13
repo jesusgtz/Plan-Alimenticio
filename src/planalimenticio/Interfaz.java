@@ -1,29 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package planalimenticio;
 
 import database.Connect;
-import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 
 /**
  *
- * @author Miguel
+ * @author Equipo1
  */
 public class Interfaz extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Interfaz
-     * 
-     */
     public Interfaz() {
         initComponents();
         pnlresultados.hide();
@@ -360,10 +348,6 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_txtcuelloKeyTyped
 
     private void btncalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncalcularActionPerformed
-
-		// ELIMINAR INSTRUCCION Y FUNCION.
-		// SOLO ES PARA LA PRUEBA A LA CONEXION A LA BASE DE DATOS.
-		testConnectionDB();
 		
         double altura,peso,cintura,cuello,cadera = 0,nivelact=0;
 
@@ -472,11 +456,9 @@ public class Interfaz extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Interfaz().setVisible(true);
-            }
-        });
+        java.awt.EventQueue.invokeLater(() -> {
+			new Interfaz().setVisible(true);
+		});
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

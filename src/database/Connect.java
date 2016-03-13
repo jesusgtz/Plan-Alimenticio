@@ -48,7 +48,9 @@ public class Connect {
 	public boolean isClosed() {
 		try {
 			return this.conn.isClosed();
-		} catch (SQLException er) {}
+		} catch (SQLException er) {
+			System.out.println("isClosed(): " + er.getMessage());
+		}
 		return false;
 	}
 	

@@ -1,13 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package planalimenticio;
 
 /**
  *
- * @author Miguel
+ * @author Equipo1
  * 
  */
 public class Operaciones {
@@ -15,7 +10,7 @@ public class Operaciones {
         return (peso/(Math.pow((altura*.01),2)));
     }
     public double PGC(double cintura,double cuello,double altura,double cadera,String sexo){
-        if(sexo=="Masculino"){ 
+        if("Masculino".equals(sexo)){ 
         return (495/(1.0324-0.19007*Math.log10(cintura-cuello)+0.15456*Math.log10(altura)))-450;
         }else
         return (495/(1.29579-0.35004*Math.log10(cintura+cadera-cuello)+0.221*Math.log10(altura)))-450;
