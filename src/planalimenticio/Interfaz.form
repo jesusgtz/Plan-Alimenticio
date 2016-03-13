@@ -28,24 +28,31 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="192" max="-2" attributes="0"/>
-                      <Component id="lbltitulo" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="207" max="-2" attributes="0"/>
-                      <Component id="btncalcular" min="-2" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
+              <EmptySpace min="-2" pref="192" max="-2" attributes="0"/>
+              <Component id="lbltitulo" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-              <Component id="pnldatos" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="27" max="32767" attributes="0"/>
-              <Component id="pnlresultados" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="pnldatos" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="btncalcular" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="pnlresultados" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btnSiguiente" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
@@ -65,7 +72,10 @@
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="btncalcular" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btncalcular" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnSiguiente" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -87,7 +97,11 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Component id="lblnivelact" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
+                          <EmptySpace pref="105" max="32767" attributes="0"/>
+=======
                           <EmptySpace pref="69" max="32767" attributes="0"/>
+>>>>>>> 3d0c3911e6599ce352e0a6ab6fc8b59930b57f77
                       </Group>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" attributes="0">
@@ -100,19 +114,21 @@
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="txtcadera" max="32767" attributes="0"/>
-                                      <Component id="txtcuello" max="32767" attributes="0"/>
-                                      <Component id="txtcintura" alignment="0" pref="79" max="32767" attributes="0"/>
-                                  </Group>
                                   <Component id="txtpeso" alignment="0" max="32767" attributes="0"/>
                                   <Component id="txtaltura" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="txtcintura" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtcuello" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtcadera" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="lblsexo" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
+                              <EmptySpace pref="100" max="32767" attributes="0"/>
+=======
                               <EmptySpace pref="66" max="32767" attributes="0"/>
+>>>>>>> 3d0c3911e6599ce352e0a6ab6fc8b59930b57f77
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="rbtnfemenino" min="-2" max="-2" attributes="0"/>
                                   <Component id="rbtnmasculino" min="-2" max="-2" attributes="0"/>
@@ -179,7 +195,6 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtaltura">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtalturaActionPerformed"/>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtalturaKeyTyped"/>
           </Events>
         </Component>
@@ -200,7 +215,6 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtpeso">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtpesoActionPerformed"/>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtpesoKeyTyped"/>
           </Events>
         </Component>
@@ -211,7 +225,6 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtcuello">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtcuelloActionPerformed"/>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtcuelloKeyTyped"/>
           </Events>
         </Component>
@@ -221,7 +234,12 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtcadera">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Hombres opcional"/>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
+          </Properties>
           <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtcaderaMouseClicked"/>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtcaderaKeyTyped"/>
           </Events>
         </Component>
@@ -238,7 +256,7 @@
             <Property name="text" type="java.lang.String" value="Masculino"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbtnmasculinoActionPerformed"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="rbtnmasculinoMouseClicked"/>
           </Events>
         </Component>
         <Component class="javax.swing.JRadioButton" name="rbtnfemenino">
@@ -248,6 +266,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Femenino"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="rbtnfemeninoMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblnivelact">
           <Properties>
@@ -371,5 +392,14 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JButton" name="btnSiguiente">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Siguiente"/>
+        <Property name="name" type="java.lang.String" value="btnSiguiente" noResource="true"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnSiguienteMouseClicked"/>
+      </Events>
+    </Component>
   </SubComponents>
 </Form>

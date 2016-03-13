@@ -15,9 +15,9 @@ public class Operaciones {
         return (peso/(Math.pow((altura*.01),2)));
     }
     public double PGC(double cintura,double cuello,double altura,double cadera,String sexo){
-        if(sexo=="Masculino")
+        if(sexo=="Masculino"){ 
         return (495/(1.0324-0.19007*Math.log10(cintura-cuello)+0.15456*Math.log10(altura)))-450;
-        else
+        }else
         return (495/(1.29579-0.35004*Math.log10(cintura+cadera-cuello)+0.221*Math.log10(altura)))-450;
         
     }   
