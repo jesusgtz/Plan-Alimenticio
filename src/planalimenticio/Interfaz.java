@@ -7,14 +7,12 @@ package planalimenticio;
 
 import database.Connect;
 import java.awt.event.KeyEvent;
-<<<<<<< HEAD
 import javax.swing.JOptionPane;
-=======
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
->>>>>>> 3d0c3911e6599ce352e0a6ab6fc8b59930b57f77
+
 
 /**
  *
@@ -362,16 +360,13 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_txtcuelloKeyTyped
 
     private void btncalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncalcularActionPerformed
-<<<<<<< HEAD
-        
-        double altura=0,peso=0,cintura=0,cuello=0,cadera=0,nivelact=0;
-=======
+
 		// ELIMINAR INSTRUCCION Y FUNCION.
 		// SOLO ES PARA LA PRUEBA A LA CONEXION A LA BASE DE DATOS.
 		testConnectionDB();
 		
-        double altura,peso,cintura,cuello,cadera,nivelact=0;
->>>>>>> 3d0c3911e6599ce352e0a6ab6fc8b59930b57f77
+        double altura,peso,cintura,cuello,cadera = 0,nivelact=0;
+
         String sexo="",snivelact="";
 
         if(txtaltura.getText().isEmpty()) JOptionPane.showMessageDialog(null, "Campo altura vacio");
