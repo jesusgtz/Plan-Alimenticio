@@ -97,11 +97,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Component id="lblnivelact" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
                           <EmptySpace pref="105" max="32767" attributes="0"/>
-=======
-                          <EmptySpace pref="69" max="32767" attributes="0"/>
->>>>>>> 3d0c3911e6599ce352e0a6ab6fc8b59930b57f77
                       </Group>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" attributes="0">
@@ -124,11 +120,7 @@
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="lblsexo" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
                               <EmptySpace pref="100" max="32767" attributes="0"/>
-=======
-                              <EmptySpace pref="66" max="32767" attributes="0"/>
->>>>>>> 3d0c3911e6599ce352e0a6ab6fc8b59930b57f77
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="rbtnfemenino" min="-2" max="-2" attributes="0"/>
                                   <Component id="rbtnmasculino" min="-2" max="-2" attributes="0"/>
