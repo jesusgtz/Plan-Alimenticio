@@ -2,6 +2,7 @@ package planalimenticio;
 
 import database.Connect;
 import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Equipo1
@@ -65,6 +66,11 @@ public class Desayuno extends javax.swing.JFrame {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
+        });
+        jList1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jList1MouseClicked(evt);
+            }
         });
         jScrollPane1.setViewportView(jList1);
 
@@ -215,6 +221,15 @@ public class Desayuno extends javax.swing.JFrame {
         interfaz.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnVolverMouseClicked
+
+    private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
+        int []indices = this.jList1.getSelectedIndices();
+        if(indices.length > 2) {
+            JOptionPane.showMessageDialog(null, "No puedes seleccionar"
+                    + " más de 3 elementos", "Error", 2);
+            this.jList1.clearSelection();
+        }
+    }//GEN-LAST:event_jList1MouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnVolver;
