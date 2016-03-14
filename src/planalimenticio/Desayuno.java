@@ -1,5 +1,7 @@
 package planalimenticio;
 
+import database.Connect;
+import java.sql.ResultSet;
 /**
  *
  * @author Equipo1
@@ -7,8 +9,20 @@ package planalimenticio;
 public class Desayuno extends javax.swing.JFrame {
 
     public Desayuno(double CxD) {
-        this.CxD = Math.floor(CxD*.20);
+        this.CxD = Math.floor(CxD*.25);
+        this.con = new Connect();
+        if(!con.isClosed()) {
+            this.lacteos = con.Select("SELECT * FROM `Alimentos` "
+                    + "WHERE `Tipo` = 'Lacteos';");
+            this.cereales = con.Select("SELECT * FROM `Alimentos` "
+                    + "WHERE `Tipo` = 'Ricos en Azucares';");
+            this.fruta = con.Select("SELECT * FROM `Alimentos` "
+                    + "WHERE `Tipo` = 'Frutas';");
+            this.otros = con.Select("SELECT * FROM `Alimentos` "
+                    + "WHERE `Tipo` = 'Otros';");
+        }
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -226,4 +240,9 @@ public class Desayuno extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     // End of variables declaration//GEN-END:variables
     private double CxD;
+    private Connect con;
+    private ResultSet lacteos;
+    private ResultSet cereales;
+    private ResultSet fruta;
+    private ResultSet otros;
 }
