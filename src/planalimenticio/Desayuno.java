@@ -230,7 +230,34 @@ public class Desayuno extends javax.swing.JFrame {
             this.jList1.clearSelection();
         }
     }//GEN-LAST:event_jList1MouseClicked
-
+    
+    private void jList2MouseClicked(java.awt.event.MouseEvent evt) {                                    
+        int []indices = this.jList2.getSelectedIndices();
+        if(indices.length > 2) {
+            JOptionPane.showMessageDialog(null, "No puedes seleccionar"
+                    + " más de 3 elementos", "Error", 2);
+            this.jList2.clearSelection();
+        }
+    }
+    
+    private void jList3MouseClicked(java.awt.event.MouseEvent evt) {                                    
+        int []indices = this.jList3.getSelectedIndices();
+        if(indices.length > 2) {
+            JOptionPane.showMessageDialog(null, "No puedes seleccionar"
+                    + " más de 3 elementos", "Error", 2);
+            this.jList3.clearSelection();
+        }
+    }
+    
+    private void jList4MouseClicked(java.awt.event.MouseEvent evt) {                                    
+        int []indices = this.jList4.getSelectedIndices();
+        if(indices.length > 2) {
+            JOptionPane.showMessageDialog(null, "No puedes seleccionar"
+                    + " más de 3 elementos", "Error", 2);
+            this.jList4.clearSelection();
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnVolver;
     private javax.swing.JLabel jLabel1;
