@@ -12,21 +12,37 @@ import java.util.ArrayList;
  *
  * @author Equipo1
  */
-public class Colasiones extends javax.swing.JFrame {
+public class Colaciones extends javax.swing.JFrame {
 	
-	private ArrayList calorias_lacteos_frutas;
+    private ArrayList calorias_lacteos_frutas;
+    private ArrayList calorias_cereales;
+    private ArrayList calorias_otros;
 
-    public Colasiones(double CxD) {
+    public Colaciones(double CxD) {
         initComponents();
 		
-		this.CxD = Math.floor(CxD*.20);
-		ToList toList = loadLists("Tipo='Lacteos'");
-		
-		this.calorias_lacteos_frutas = toList.getArray();
-		List li = toList.getList();
-		for(int i = 0, n = toList.getSize(); i < n; i++) {
-			this.lacteos_frutas_list.add(li.getItem(i));
-		}
+        this.CxD = Math.floor(CxD*.20);
+        
+        ToList toList = loadLists("Tipo='Lacteos' OR Tipo='Frutas'");
+        this.calorias_lacteos_frutas = toList.getArray();
+        List li = toList.getList();
+        for(int i = 0, n = toList.getSize(); i < n; i++) {
+            this.lacteos_frutas_list.add(li.getItem(i));
+        }
+        
+        toList = loadLists("Tipo='Rico en Azucares'");
+        this.calorias_cereales = toList.getArray();
+        li = toList.getList();
+        for(int i=0, n = toList.getSize(); i<n; i++) {
+            this.cereales_list.add(li.getItem(i));
+        }
+        
+        toList = loadLists("Tipo='Otros'");
+        this.calorias_otros = toList.getArray();
+        li = toList.getList();
+        for(int i=0, n = toList.getSize(); i<n; i++) {
+            this.otros_list.add(li.getItem(i));
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -38,10 +54,6 @@ public class Colasiones extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        cereales_list = new javax.swing.JList<>();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        otros_list = new javax.swing.JList<>();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         calorias_seleccionadas_lbl = new javax.swing.JLabel();
@@ -50,6 +62,8 @@ public class Colasiones extends javax.swing.JFrame {
         calorias_totales_lbl = new javax.swing.JLabel();
         btnVolver1 = new javax.swing.JButton();
         lacteos_frutas_list = new java.awt.List();
+        cereales_list = new java.awt.List();
+        otros_list = new java.awt.List();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -68,20 +82,6 @@ public class Colasiones extends javax.swing.JFrame {
 
         jLabel4.setText("Otros");
 
-        cereales_list.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane2.setViewportView(cereales_list);
-
-        otros_list.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane3.setViewportView(otros_list);
-
         jLabel6.setText("Calorías seleccionadas:");
 
         jLabel7.setText("Calorías faltantes:");
@@ -92,7 +92,7 @@ public class Colasiones extends javax.swing.JFrame {
 
         jLabel10.setText("Calorías totales:");
 
-        calorias_totales_lbl.setText("totales");
+        calorias_totales_lbl.setText(Double.toString(this.CxD));
 
         btnVolver1.setBackground(new java.awt.Color(102, 204, 0));
         btnVolver1.setText("Siguiente");
@@ -101,6 +101,8 @@ public class Colasiones extends javax.swing.JFrame {
                 btnVolver1MouseClicked(evt);
             }
         });
+
+        lacteos_frutas_list.setMultipleMode(true);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -112,11 +114,11 @@ public class Colasiones extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(109, 109, 109)
                         .addComponent(jLabel2)
-                        .addGap(179, 179, 179)
+                        .addGap(135, 135, 135)
                         .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(149, 149, 149)
                         .addComponent(jLabel4)
-                        .addGap(137, 137, 137))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel10)
@@ -129,36 +131,32 @@ public class Colasiones extends javax.swing.JFrame {
                                     .addComponent(calorias_faltantes_lbl)
                                     .addComponent(calorias_seleccionadas_lbl)
                                     .addComponent(calorias_totales_lbl)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(lacteos_frutas_list, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(15, 15, 15)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(81, 81, 81)
+                                .addComponent(lacteos_frutas_list, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(44, 44, 44)
+                                .addComponent(cereales_list, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(btnVolver1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(69, 69, 69)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(91, 91, 91))))))
+                            .addComponent(otros_list, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane3)
-                            .addComponent(lacteos_frutas_list, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(cereales_list, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lacteos_frutas_list, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
+                    .addComponent(otros_list, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(39, 39, 39)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -177,11 +175,9 @@ public class Colasiones extends javax.swing.JFrame {
                     .addComponent(btnVolver1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        jLabel4.getAccessibleContext().setAccessibleName("Otros");
-
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Colasiones");
+        jLabel1.setText("Colaciones");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -199,8 +195,6 @@ public class Colasiones extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-
-        jLabel1.getAccessibleContext().setAccessibleName("Colasiones");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -250,7 +244,7 @@ public class Colasiones extends javax.swing.JFrame {
     private javax.swing.JLabel calorias_faltantes_lbl;
     private javax.swing.JLabel calorias_seleccionadas_lbl;
     private javax.swing.JLabel calorias_totales_lbl;
-    private javax.swing.JList<String> cereales_list;
+    private java.awt.List cereales_list;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -259,10 +253,8 @@ public class Colasiones extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private java.awt.List lacteos_frutas_list;
-    private javax.swing.JList<String> otros_list;
+    private java.awt.List otros_list;
     // End of variables declaration//GEN-END:variables
     private double CxD;
     private Connect con;
