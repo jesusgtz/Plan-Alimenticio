@@ -103,6 +103,23 @@ public class Colaciones extends javax.swing.JFrame {
         });
 
         lacteos_frutas_list.setMultipleMode(true);
+        lacteos_frutas_list.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lacteos_frutas_listMouseClicked(evt);
+            }
+        });
+
+        cereales_list.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cereales_listMouseClicked(evt);
+            }
+        });
+
+        otros_list.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                otros_listMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -209,6 +226,33 @@ public class Colaciones extends javax.swing.JFrame {
     private void btnVolver1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolver1MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_btnVolver1MouseClicked
+
+    private void lacteos_frutas_listMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lacteos_frutas_listMouseClicked
+        int []indices = this.lacteos_frutas_list.getSelectedIndexes();
+        if(indices.length > 2) {
+            JOptionPane.showMessageDialog(null, "No se debe seleccionar más de "
+                    + "2 raciones de este tipo de alimento", "Advertencia", 2);
+            this.lacteos_frutas_list.deselect(indices[0]);
+        }
+    }//GEN-LAST:event_lacteos_frutas_listMouseClicked
+
+    private void cereales_listMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cereales_listMouseClicked
+        int []indices = this.cereales_list.getSelectedIndexes();
+        if(indices.length > 2) {
+            JOptionPane.showMessageDialog(null, "No se debe seleccionar más de "
+                    + "2 raciones de este tipo de alimento", "Advertencia", 2);
+            this.cereales_list.deselect(indices[0]);
+        }
+    }//GEN-LAST:event_cereales_listMouseClicked
+
+    private void otros_listMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_otros_listMouseClicked
+        int []indices = this.otros_list.getSelectedIndexes();
+        if(indices.length > 2) {
+            JOptionPane.showMessageDialog(null, "No se debe seleccionar más de "
+                    + "2 raciones de este tipo de alimento", "Advertencia", 2);
+            this.otros_list.deselect(indices[0]);
+        }
+    }//GEN-LAST:event_otros_listMouseClicked
 	
 	private ToList loadLists(String clausula) { // clausula: "Tipo='Algo' OR ... etc"
 		ToList toList = null;
