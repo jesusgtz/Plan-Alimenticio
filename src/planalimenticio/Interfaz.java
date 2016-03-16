@@ -432,8 +432,8 @@ class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_txtcaderaKeyTyped
 
     private void btnSiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSiguienteMouseClicked
-        Colaciones desayuno = new Colaciones(this.CxD);
-        desayuno.setVisible(true);
+        Colaciones colacion = new Colaciones(this.CxD);
+        colacion.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnSiguienteMouseClicked
 
