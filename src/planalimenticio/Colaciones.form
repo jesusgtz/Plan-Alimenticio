@@ -212,11 +212,17 @@
           </Events>
         </Component>
         <Component class="java.awt.List" name="cereales_list">
+          <Properties>
+            <Property name="multipleMode" type="boolean" value="true"/>
+          </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="cereales_listMouseClicked"/>
           </Events>
         </Component>
         <Component class="java.awt.List" name="otros_list">
+          <Properties>
+            <Property name="multipleMode" type="boolean" value="true"/>
+          </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="otros_listMouseClicked"/>
           </Events>

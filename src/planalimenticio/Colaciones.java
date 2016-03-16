@@ -109,12 +109,14 @@ public class Colaciones extends javax.swing.JFrame {
             }
         });
 
+        cereales_list.setMultipleMode(true);
         cereales_list.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 cereales_listMouseClicked(evt);
             }
         });
 
+        otros_list.setMultipleMode(true);
         otros_list.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 otros_listMouseClicked(evt);
