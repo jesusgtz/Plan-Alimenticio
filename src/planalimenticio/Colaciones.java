@@ -49,6 +49,9 @@ public class Colaciones extends javax.swing.JFrame {
 		this.cseleccionadas_cereales_lbl.setText("0.0");
 		this.cseleccionadas_otros_lbl.setText("0.0");
 		
+		this.cseleccionadas_total_lbl.setText("0.0");
+		this.cfaltantes_lbl.setText("0.0");
+		
 		this.lacteos_frutas_selected_items = null;
 		this.cereales_selected_items = null;
 		this.otros_selected_items = null;
@@ -240,14 +243,15 @@ public class Colaciones extends javax.swing.JFrame {
                     .addComponent(lacteos_frutas_list, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
                     .addComponent(otros_list, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(cseleccionadas_lacteos_frutas_lbl)
-                    .addComponent(jLabel8)
-                    .addComponent(cseleccionadas_cereales_lbl)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel9)
-                        .addComponent(cseleccionadas_otros_lbl)))
+                        .addComponent(cseleccionadas_otros_lbl))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel5)
+                        .addComponent(cseleccionadas_lacteos_frutas_lbl)
+                        .addComponent(jLabel8)
+                        .addComponent(cseleccionadas_cereales_lbl)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
