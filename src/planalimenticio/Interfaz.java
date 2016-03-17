@@ -26,6 +26,11 @@ class Interfaz extends javax.swing.JFrame {
         btnSiguiente.setVisible(false);
         rbtnmasculino.setSelected(true);
         txtcadera.enable(false);
+		
+		this.altura_txt.setText("170");
+		this.peso_txt.setText("65");
+		this.cintura_txt.setText("80");
+		this.cuello_txt.setText("40");
     }
 	
     /**
@@ -41,20 +46,20 @@ class Interfaz extends javax.swing.JFrame {
         lbltitulo = new javax.swing.JLabel();
         pnldatos = new javax.swing.JPanel();
         lblaltura = new javax.swing.JLabel();
-        txtaltura = new javax.swing.JTextField();
+        altura_txt = new javax.swing.JTextField();
         lblpeso = new javax.swing.JLabel();
-        txtcintura = new javax.swing.JTextField();
+        cintura_txt = new javax.swing.JTextField();
         lblcintura = new javax.swing.JLabel();
-        txtpeso = new javax.swing.JTextField();
+        peso_txt = new javax.swing.JTextField();
         lblcuello = new javax.swing.JLabel();
-        txtcuello = new javax.swing.JTextField();
+        cuello_txt = new javax.swing.JTextField();
         lblcadera = new javax.swing.JLabel();
         txtcadera = new javax.swing.JTextField();
         lblsexo = new javax.swing.JLabel();
         rbtnmasculino = new javax.swing.JRadioButton();
         rbtnfemenino = new javax.swing.JRadioButton();
         lblnivelact = new javax.swing.JLabel();
-        cmbnivelact = new javax.swing.JComboBox<>();
+        nivel_act_cmb = new javax.swing.JComboBox<>();
         btncalcular = new javax.swing.JButton();
         pnlresultados = new javax.swing.JPanel();
         lblcxd = new javax.swing.JLabel();
@@ -72,33 +77,33 @@ class Interfaz extends javax.swing.JFrame {
 
         lblaltura.setText("Altura (CM):");
 
-        txtaltura.addKeyListener(new java.awt.event.KeyAdapter() {
+        altura_txt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtalturaKeyTyped(evt);
+                altura_txtKeyTyped(evt);
             }
         });
 
         lblpeso.setText("Peso(KG):");
 
-        txtcintura.addKeyListener(new java.awt.event.KeyAdapter() {
+        cintura_txt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtcinturaKeyTyped(evt);
+                cintura_txtKeyTyped(evt);
             }
         });
 
         lblcintura.setText("Cintura(CM):");
 
-        txtpeso.addKeyListener(new java.awt.event.KeyAdapter() {
+        peso_txt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtpesoKeyTyped(evt);
+                peso_txtKeyTyped(evt);
             }
         });
 
         lblcuello.setText("Cuello(CM):");
 
-        txtcuello.addKeyListener(new java.awt.event.KeyAdapter() {
+        cuello_txt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtcuelloKeyTyped(evt);
+                cuello_txtKeyTyped(evt);
             }
         });
 
@@ -137,9 +142,9 @@ class Interfaz extends javax.swing.JFrame {
 
         lblnivelact.setText("Nievel de actividad:");
 
-        cmbnivelact.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sedentario", "Ligero", "Moderado", "Intensa" }));
-        cmbnivelact.setSelectedItem("");
-        cmbnivelact.setToolTipText("");
+        nivel_act_cmb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sedentario", "Ligero", "Moderado", "Intensa" }));
+        nivel_act_cmb.setSelectedItem("");
+        nivel_act_cmb.setToolTipText("");
 
         javax.swing.GroupLayout pnldatosLayout = new javax.swing.GroupLayout(pnldatos);
         pnldatos.setLayout(pnldatosLayout);
@@ -150,7 +155,7 @@ class Interfaz extends javax.swing.JFrame {
                 .addGroup(pnldatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnldatosLayout.createSequentialGroup()
                         .addComponent(lblnivelact)
-                        .addContainerGap(105, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(pnldatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(pnldatosLayout.createSequentialGroup()
                             .addGroup(pnldatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,20 +166,20 @@ class Interfaz extends javax.swing.JFrame {
                                 .addComponent(lblcadera))
                             .addGap(18, 18, 18)
                             .addGroup(pnldatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtpeso)
-                                .addComponent(txtaltura, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(txtcintura)
-                                .addComponent(txtcuello)
+                                .addComponent(peso_txt)
+                                .addComponent(altura_txt, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(cintura_txt)
+                                .addComponent(cuello_txt)
                                 .addComponent(txtcadera))
                             .addContainerGap())
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnldatosLayout.createSequentialGroup()
                             .addComponent(lblsexo)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(pnldatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(rbtnfemenino)
                                 .addComponent(rbtnmasculino)))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnldatosLayout.createSequentialGroup()
-                            .addComponent(cmbnivelact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nivel_act_cmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(3, 3, 3)))))
         );
         pnldatosLayout.setVerticalGroup(
@@ -183,19 +188,19 @@ class Interfaz extends javax.swing.JFrame {
                 .addGap(8, 8, 8)
                 .addGroup(pnldatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblaltura)
-                    .addComponent(txtaltura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(altura_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnldatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblpeso)
-                    .addComponent(txtpeso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(peso_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnldatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtcintura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cintura_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblcintura))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnldatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblcuello)
-                    .addComponent(txtcuello, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cuello_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnldatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtcadera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -209,7 +214,7 @@ class Interfaz extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(lblnivelact)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cmbnivelact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(nivel_act_cmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
@@ -288,25 +293,21 @@ class Interfaz extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(192, 192, 192)
-                .addComponent(lbltitulo)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(192, 192, 192)
+                        .addComponent(lbltitulo))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pnldatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(btncalcular)
+                                .addGap(21, 21, 21)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pnlresultados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSiguiente))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnldatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btncalcular)
-                        .addGap(21, 21, 21)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(pnlresultados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(17, 17, 17))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(btnSiguiente)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -330,29 +331,29 @@ class Interfaz extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
             
-    private void txtalturaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtalturaKeyTyped
+    private void altura_txtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_altura_txtKeyTyped
         char c=evt.getKeyChar();
         if(c<'0' || c>'9') 
         evt.consume();
-    }//GEN-LAST:event_txtalturaKeyTyped
+    }//GEN-LAST:event_altura_txtKeyTyped
 
-    private void txtpesoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtpesoKeyTyped
+    private void peso_txtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_peso_txtKeyTyped
         char c=evt.getKeyChar();
         if(c<'0' || c>'9') 
         evt.consume();
-    }//GEN-LAST:event_txtpesoKeyTyped
+    }//GEN-LAST:event_peso_txtKeyTyped
 
-    private void txtcinturaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcinturaKeyTyped
+    private void cintura_txtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cintura_txtKeyTyped
         char c=evt.getKeyChar();
         if(c<'0' || c>'9') 
         evt.consume();
-    }//GEN-LAST:event_txtcinturaKeyTyped
+    }//GEN-LAST:event_cintura_txtKeyTyped
 
-    private void txtcuelloKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcuelloKeyTyped
+    private void cuello_txtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cuello_txtKeyTyped
         char c=evt.getKeyChar();
         if(c<'0' || c>'9') 
         evt.consume();
-    }//GEN-LAST:event_txtcuelloKeyTyped
+    }//GEN-LAST:event_cuello_txtKeyTyped
 
     private void btncalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncalcularActionPerformed
 		
@@ -360,25 +361,25 @@ class Interfaz extends javax.swing.JFrame {
 
         String sexo="",snivelact="";
 
-        if(txtaltura.getText().isEmpty()) JOptionPane.showMessageDialog(null, "Campo altura vacio");
+        if(altura_txt.getText().isEmpty()) JOptionPane.showMessageDialog(null, "Campo altura vacio");
         else {  
-            altura = Double.parseDouble(txtaltura.getText());
-            if(txtpeso.getText().isEmpty()) JOptionPane.showMessageDialog(null, "Campo peso vacio");
+            altura = Double.parseDouble(altura_txt.getText());
+            if(peso_txt.getText().isEmpty()) JOptionPane.showMessageDialog(null, "Campo peso vacio");
             else {
-                peso = Double.parseDouble(txtpeso.getText());
-                if(txtcintura.getText().isEmpty()) JOptionPane.showMessageDialog(null, "Campo cintura vacio");
+                peso = Double.parseDouble(peso_txt.getText());
+                if(cintura_txt.getText().isEmpty()) JOptionPane.showMessageDialog(null, "Campo cintura vacio");
                 else {
-                    cintura = Double.parseDouble(txtcintura.getText());
-                    if(txtcuello.getText().isEmpty()) JOptionPane.showMessageDialog(null, "Campo cuello vacio");
+                    cintura = Double.parseDouble(cintura_txt.getText());
+                    if(cuello_txt.getText().isEmpty()) JOptionPane.showMessageDialog(null, "Campo cuello vacio");
                     else {
-                        cuello = Double.parseDouble(txtcuello.getText());
+                        cuello = Double.parseDouble(cuello_txt.getText());
                         if(rbtnmasculino.isSelected()) sexo = "Masculino";
-                        else if(rbtnfemenino.isSelected()) {
+                        else {
                             sexo = "Femenino";
                             if(txtcadera.getText().isEmpty()) JOptionPane.showMessageDialog(null, "Campo cadera vacio");
                             else  cadera = Double.parseDouble(txtcadera.getText());
                         }
-                        snivelact=(String)cmbnivelact.getSelectedItem();
+                        snivelact = (String)nivel_act_cmb.getSelectedItem();
                         switch(snivelact) {
                             case "Sedentario":
 								nivelact=1.2;
@@ -479,10 +480,12 @@ class Interfaz extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField altura_txt;
     private javax.swing.JButton btnSiguiente;
     private javax.swing.JButton btncalcular;
     private javax.swing.ButtonGroup btngsexo;
-    private javax.swing.JComboBox<String> cmbnivelact;
+    private javax.swing.JTextField cintura_txt;
+    private javax.swing.JTextField cuello_txt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblIMC;
@@ -498,15 +501,13 @@ class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel lblpxd;
     private javax.swing.JLabel lblsexo;
     private javax.swing.JLabel lbltitulo;
+    private javax.swing.JComboBox<String> nivel_act_cmb;
+    private javax.swing.JTextField peso_txt;
     private javax.swing.JPanel pnldatos;
     private javax.swing.JPanel pnlresultados;
     private javax.swing.JRadioButton rbtnfemenino;
     private javax.swing.JRadioButton rbtnmasculino;
-    private javax.swing.JTextField txtaltura;
     private javax.swing.JTextField txtcadera;
-    private javax.swing.JTextField txtcintura;
-    private javax.swing.JTextField txtcuello;
-    private javax.swing.JTextField txtpeso;
     // End of variables declaration//GEN-END:variables
 
 	

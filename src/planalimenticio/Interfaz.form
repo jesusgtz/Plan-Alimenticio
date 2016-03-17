@@ -106,10 +106,10 @@
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtpeso" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtaltura" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="txtcintura" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtcuello" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="peso_txt" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="altura_txt" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="cintura_txt" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="cuello_txt" alignment="0" max="32767" attributes="0"/>
                                   <Component id="txtcadera" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -123,7 +123,7 @@
                               </Group>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="cmbnivelact" min="-2" max="-2" attributes="0"/>
+                              <Component id="nivel_act_cmb" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -137,22 +137,22 @@
                   <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblaltura" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtaltura" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="altura_txt" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblpeso" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtpeso" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="peso_txt" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtcintura" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cintura_txt" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblcintura" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblcuello" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtcuello" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cuello_txt" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -169,7 +169,7 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="lblnivelact" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="cmbnivelact" min="-2" max="-2" attributes="0"/>
+                  <Component id="nivel_act_cmb" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="14" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -181,9 +181,9 @@
             <Property name="text" type="java.lang.String" value="Altura (CM):"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtaltura">
+        <Component class="javax.swing.JTextField" name="altura_txt">
           <Events>
-            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtalturaKeyTyped"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="altura_txtKeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblpeso">
@@ -191,9 +191,9 @@
             <Property name="text" type="java.lang.String" value="Peso(KG):"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtcintura">
+        <Component class="javax.swing.JTextField" name="cintura_txt">
           <Events>
-            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtcinturaKeyTyped"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cintura_txtKeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblcintura">
@@ -201,9 +201,9 @@
             <Property name="text" type="java.lang.String" value="Cintura(CM):"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtpeso">
+        <Component class="javax.swing.JTextField" name="peso_txt">
           <Events>
-            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtpesoKeyTyped"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="peso_txtKeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblcuello">
@@ -211,9 +211,9 @@
             <Property name="text" type="java.lang.String" value="Cuello(CM):"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtcuello">
+        <Component class="javax.swing.JTextField" name="cuello_txt">
           <Events>
-            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtcuelloKeyTyped"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cuello_txtKeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblcadera">
@@ -263,7 +263,7 @@
             <Property name="text" type="java.lang.String" value="Nievel de actividad:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="cmbnivelact">
+        <Component class="javax.swing.JComboBox" name="nivel_act_cmb">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="4">
