@@ -63,21 +63,37 @@
                               <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
+                                          <Component id="lacteos_frutas_list" min="-2" pref="170" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="cfaltantes_lbl" min="-2" max="-2" attributes="0"/>
+                                              <Component id="cseleccionadas_total_lbl" min="-2" max="-2" attributes="0"/>
+                                              <Component id="ctotales_lbl" min="-2" max="-2" attributes="0"/>
+                                              <Component id="cseleccionadas_lacteos_frutas_lbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
+                                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="calorias_faltantes_lbl" min="-2" max="-2" attributes="0"/>
-                                      <Component id="calorias_seleccionadas_lbl" min="-2" max="-2" attributes="0"/>
-                                      <Component id="calorias_totales_lbl" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
-                                  <Component id="lacteos_frutas_list" min="-2" pref="170" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                                  <Component id="cereales_list" min="-2" pref="170" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="72" pref="72" max="-2" attributes="0"/>
+                                          <Component id="cseleccionadas_cereales_lbl" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cereales_list" min="-2" pref="170" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                           <EmptySpace pref="58" max="32767" attributes="0"/>
@@ -88,6 +104,11 @@
                                   <Component id="btnVolver" min="-2" pref="115" max="-2" attributes="0"/>
                               </Group>
                               <Component id="otros_list" min="-2" pref="170" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="72" pref="72" max="-2" attributes="0"/>
+                                  <Component id="cseleccionadas_otros_lbl" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -109,20 +130,33 @@
                       <Component id="lacteos_frutas_list" pref="258" max="32767" attributes="0"/>
                       <Component id="otros_list" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                          <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cseleccionadas_otros_lbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cseleccionadas_lacteos_frutas_lbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cseleccionadas_cereales_lbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="calorias_seleccionadas_lbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cseleccionadas_total_lbl" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="calorias_faltantes_lbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cfaltantes_lbl" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="calorias_totales_lbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ctotales_lbl" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="27" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -170,12 +204,12 @@
             <Property name="text" type="java.lang.String" value="Calor&#xed;as faltantes:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="calorias_seleccionadas_lbl">
+        <Component class="javax.swing.JLabel" name="cseleccionadas_total_lbl">
           <Properties>
             <Property name="text" type="java.lang.String" value="seleccionadas"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="calorias_faltantes_lbl">
+        <Component class="javax.swing.JLabel" name="cfaltantes_lbl">
           <Properties>
             <Property name="text" type="java.lang.String" value="faltantes"/>
           </Properties>
@@ -185,7 +219,7 @@
             <Property name="text" type="java.lang.String" value="Calor&#xed;as totales:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="calorias_totales_lbl">
+        <Component class="javax.swing.JLabel" name="ctotales_lbl">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="Double.toString(this.CxD)" type="code"/>
@@ -226,6 +260,36 @@
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="otros_listMouseClicked"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="cseleccionadas_lacteos_frutas_lbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="value"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel5">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Calorias:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel8">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Calorias:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="cseleccionadas_cereales_lbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="value"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel9">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Calorias:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="cseleccionadas_otros_lbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="value"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
