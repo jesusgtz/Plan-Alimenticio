@@ -8,17 +8,19 @@ package planalimenticio;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * Creates new form Resultados
  * @author FRK
  */
 public class Resultados extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Resultados
-     */
     private String [] comidas;
     private double CxD;
     
+    /**
+     * Constructor
+     * @param CxD
+     * @param comidas 
+     */
     public Resultados(double CxD, String [] comidas) {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -42,11 +44,11 @@ public class Resultados extends javax.swing.JFrame {
         ctotal_lbl.setText(": "+total);
         CxD_lbl.setText(": "+this.CxD);
     }
-public String[] split(String some)
-{
-    String [] somethingelse = some.split(";");
-    return somethingelse;
-}
+    
+    public String[] split(String some) {
+        String [] somethingelse = some.split(";");
+        return somethingelse;
+    }
     
     
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -262,8 +264,6 @@ public String[] split(String some)
         interfaz.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1MouseClicked
-
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CxD_lbl;
