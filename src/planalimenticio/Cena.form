@@ -181,12 +181,12 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Lacteos/Frutas"/>
+            <Property name="text" type="java.lang.String" value="Lacteos y frutas"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Cereales"/>
+            <Property name="text" type="java.lang.String" value="Cereales y verduras"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">

@@ -357,7 +357,7 @@ public class Desayuno extends javax.swing.JFrame {
 
 
     private void btnSiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSiguienteMouseClicked
-        Colaciones colacion1 = new Colaciones(this.CxD / .25);
+        Colaciones colacion1 = new Colaciones(this.CxD / .25, 0);
         colacion1.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnSiguienteMouseClicked

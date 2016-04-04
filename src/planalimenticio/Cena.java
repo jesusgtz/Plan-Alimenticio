@@ -63,14 +63,14 @@ public class Cena extends javax.swing.JFrame {
             this.lacteos_frutas_list.add(li.getItem(i));
         }
         
-        toList = loadLists("Tipo='Rico en Azucares'");
+        toList = loadLists("Tipo='Rico en Azucares' OR Tipo='Vegetales'");
         this.calorias_cereales = toList.getArray();
         li = toList.getList();
         for(int i=0, n = toList.getSize(); i<n; i++) {
             this.cereales_list.add(li.getItem(i));
         }
         
-        toList = loadLists("Tipo='Otros'");
+        toList = loadLists("Tipo='Carne Roja' OR Tipo='Pescados y Mariscos' OR Tipo='Carne Blanca'");
         this.calorias_otros = toList.getArray();
         li = toList.getList();
         for(int i=0, n = toList.getSize(); i<n; i++) {
@@ -115,9 +115,9 @@ public class Cena extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("Lacteos/Frutas");
+        jLabel2.setText("Lacteos y frutas");
 
-        jLabel3.setText("Cereales");
+        jLabel3.setText("Cereales y verduras");
 
         jLabel4.setText("Carne");
 
@@ -323,7 +323,7 @@ public class Cena extends javax.swing.JFrame {
 
     private void cereales_listMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cereales_listMouseClicked
         int []indices = this.cereales_list.getSelectedIndexes();
-        if(indices.length > 2) {
+        if(indices.length > 3) {
             JOptionPane.showMessageDialog(null, "No se debe seleccionar más de "
                     + "2 raciones de este tipo de alimento", "Advertencia", 2);
             this.cereales_list.deselect(indices[2]);

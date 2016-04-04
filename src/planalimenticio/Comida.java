@@ -50,7 +50,7 @@ public class Comida extends javax.swing.JFrame {
     public Comida(double CxD) {
         initComponents();
 		
-        this.CxD = Math.floor(CxD * .25);
+        this.CxD = Math.floor(CxD * .35);
         this.cseleccionadas_totales = 0.0d;
         this.cseleccionadas_lacteos = 0.0d;
         this.cseleccionadas_frutas = 0.0d;
@@ -402,7 +402,7 @@ public class Comida extends javax.swing.JFrame {
 
 
     private void btnSiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSiguienteMouseClicked
-        Colaciones colacion1 = new Colaciones(this.CxD / .25);
+        Colaciones colacion1 = new Colaciones(this.CxD / .35, 1);
         colacion1.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnSiguienteMouseClicked

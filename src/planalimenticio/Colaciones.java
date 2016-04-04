@@ -16,6 +16,7 @@ import javax.swing.JLabel;
 public class Colaciones extends javax.swing.JFrame {
 	
     private Connect con;
+    private int go;
     private ResultSet lacteos;
     private ResultSet cereales;
     private ResultSet fruta;
@@ -35,26 +36,27 @@ public class Colaciones extends javax.swing.JFrame {
     private final ArrayList<String> calorias_otros;
 	private double cseleccionadas_otros;
 
-    public Colaciones(double CxD) {
+    public Colaciones(double CxD,int go) {
         initComponents();
 		
         this.CxD = Math.floor(CxD * .10);
-		this.cseleccionadas_totales = 0.0d;
-		this.cseleccionadas_lacteos_frutas = 0.0d;
-		this.cseleccionadas_cereales = 0.0d;
-		this.cseleccionadas_otros = 0.0d;
-		
-		this.ctotales_lbl.setText("" + this.CxD);
-		this.cseleccionadas_lacteos_frutas_lbl.setText("0.0");
-		this.cseleccionadas_cereales_lbl.setText("0.0");
-		this.cseleccionadas_otros_lbl.setText("0.0");
-		
-		this.cseleccionadas_total_lbl.setText("0.0");
-		this.cfaltantes_lbl.setText("0.0");
-		
-		this.lacteos_frutas_selected_items = null;
-		this.cereales_selected_items = null;
-		this.otros_selected_items = null;
+            this.go = go;
+            this.cseleccionadas_totales = 0.0d;
+            this.cseleccionadas_lacteos_frutas = 0.0d;
+            this.cseleccionadas_cereales = 0.0d;
+            this.cseleccionadas_otros = 0.0d;
+
+            this.ctotales_lbl.setText("" + this.CxD);
+            this.cseleccionadas_lacteos_frutas_lbl.setText("0.0");
+            this.cseleccionadas_cereales_lbl.setText("0.0");
+            this.cseleccionadas_otros_lbl.setText("0.0");
+
+            this.cseleccionadas_total_lbl.setText("0.0");
+            this.cfaltantes_lbl.setText("0.0");
+
+            this.lacteos_frutas_selected_items = null;
+            this.cereales_selected_items = null;
+            this.otros_selected_items = null;
         
         ToList toList = loadLists("Tipo='Lacteos' OR Tipo='Frutas'");
         this.calorias_lacteos_frutas = toList.getArray();
@@ -302,9 +304,16 @@ public class Colaciones extends javax.swing.JFrame {
 
 
     private void btnSiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSiguienteMouseClicked
-        Comida comida = new Comida (this.CxD /.10);
-        comida.setVisible(true);
+        if(this.go==0)
+        {
+            Comida comida = new Comida (this.CxD /.10);
+            comida.setVisible(true);
+        }else{
+            Cena cena = new Cena(this.CxD /.10);
+            cena.setVisible(true);
+        }
         this.dispose();
+        
     }//GEN-LAST:event_btnSiguienteMouseClicked
 
     private void lacteos_frutas_listMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lacteos_frutas_listMouseClicked
