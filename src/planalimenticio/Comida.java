@@ -48,6 +48,7 @@ public class Comida extends javax.swing.JFrame {
 
     public Comida(double CxD, String [] comidas) {
         initComponents();
+        this.setLocationRelativeTo(null);
         this.comidas = comidas;
         this.CxD = Math.floor(CxD * .35);
         this.cseleccionadas_totales = 0.0d;

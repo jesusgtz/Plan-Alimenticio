@@ -22,6 +22,7 @@ class Interfaz extends javax.swing.JFrame {
 
     Interfaz() {
         initComponents();
+        this.setLocationRelativeTo(null);
         pnlresultados.hide();
         btnSiguiente.setVisible(false);
         rbtnmasculino.setSelected(true);

@@ -38,7 +38,8 @@ public class Cena extends javax.swing.JFrame {
 
     public Cena(double CxD, String [] comidas) {
         initComponents();
-		
+	this.setLocationRelativeTo(null);
+        
         this.comidas = comidas;
         this.CxD = Math.floor(CxD * .20);
         this.cseleccionadas_totales = 0.0d;

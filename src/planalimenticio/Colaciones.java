@@ -39,7 +39,8 @@ public class Colaciones extends javax.swing.JFrame {
 
     public Colaciones(double CxD,int go, String [] comidas) {
         initComponents();
-		
+	this.setLocationRelativeTo(null);
+        
         this.CxD = Math.floor(CxD * .10);
         this.go = go;
         this.comidas = comidas;

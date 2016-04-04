@@ -44,6 +44,7 @@ public class Desayuno extends javax.swing.JFrame {
 
     public Desayuno(double CxD) {
         initComponents();
+        this.setLocationRelativeTo(null);
 		
         this.CxD = Math.floor(CxD * .25);
         this.cseleccionadas_totales = 0.0d;
