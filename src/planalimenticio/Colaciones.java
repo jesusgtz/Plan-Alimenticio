@@ -18,7 +18,6 @@ public class Colaciones extends javax.swing.JFrame {
     private Connect con;
     private int go;
     private String[] comidas = new String [5];
-    private int indiceResult = 0;
     private ResultSet lacteos;
     private ResultSet cereales;
     private ResultSet fruta;
@@ -307,15 +306,32 @@ public class Colaciones extends javax.swing.JFrame {
 
 
     private void btnSiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSiguienteMouseClicked
-        if(this.go==0)
+        int[] lacteos =  this.lacteos_frutas_list.getSelectedIndexes();
+        int[] cereales = this.cereales_list.getSelectedIndexes();
+        int[] frutas = this.otros_list.getSelectedIndexes();
+        if(lacteos.length==0 && cereales.length==0 && frutas.length==0 )
         {
-            Comida comida = new Comida (this.CxD /.10);
-            comida.setVisible(true);
+            JOptionPane.showMessageDialog(null, "Debe seleccionar al menos un alimento", "Advertencia", 2);
         }else{
-            Cena cena = new Cena(this.CxD /.10);
-            cena.setVisible(true);
+            String aux ="";
+            String [] colaciones = this.lacteos_frutas_list.getSelectedItems();
+            for(int i=0;i<colaciones.length;i++)aux += colaciones[i]+"/";
+            colaciones = this.cereales_list.getSelectedItems();
+            for(int i=0;i<colaciones.length;i++)aux += colaciones[i]+"/";
+            colaciones = this.otros_list.getSelectedItems();
+            for(int i=0;i<colaciones.length;i++)aux += colaciones[i]+"/";    
+            if(this.go==0)
+            {
+                Comida comida = new Comida (this.CxD /.10);
+                comida.setVisible(true);
+                comidas[1] = aux;  
+            }else{
+                Cena cena = new Cena(this.CxD /.10);
+                cena.setVisible(true);
+                comidas[3] = aux;  
+            }
+            this.dispose();
         }
-        this.dispose();
         
     }//GEN-LAST:event_btnSiguienteMouseClicked
 
