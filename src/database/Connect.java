@@ -27,8 +27,8 @@ public class Connect {
             Class.forName("com.mysql.jdbc.Driver");
             this.conn = DriverManager.getConnection(this.host + this.dbname, this.username, this.password);
 			this.stm = conn.createStatement();
-            System.out.println("Conexion exitosa a base de datos...");
-        }catch (ClassNotFoundException | SQLException ex) {
+            // System.out.println("Conexion exitosa a base de datos...");
+        } catch (ClassNotFoundException | SQLException ex) {
             JOptionPane.showMessageDialog(null, "Falla en la conexion:  "+ ex.getMessage());
         }
 	}
@@ -37,9 +37,9 @@ public class Connect {
 		ResultSet results = null;
 		try {
 			if(!this.conn.isClosed()) results = this.stm.executeQuery(query);
-			else System.out.println("No se pudo conectar.. :(");
+			// else System.out.println("No se pudo conectar.. :(");
 		} catch (SQLException er) {
-			System.out.println("Error: " + er.getMessage());
+			JOptionPane.showMessageDialog(null, "Error al recuperar datos: "+ er.getMessage());
 		}
 		return results;
 	}
@@ -59,6 +59,7 @@ public class Connect {
 			this.conn.close();
 			return true;
 		} catch (SQLException ex) {
+			JOptionPane.showMessageDialog(null, "Error al intentar cerrar la conexion a la base de datos: "+ ex.getMessage());
 			System.out.println("Error: No se puede cerrar la conexion a la base de datos. " + ex.getMessage());
 		}
 		return false;

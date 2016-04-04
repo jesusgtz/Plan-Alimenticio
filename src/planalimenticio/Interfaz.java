@@ -156,31 +156,32 @@ class Interfaz extends javax.swing.JFrame {
                     .addGroup(pnldatosLayout.createSequentialGroup()
                         .addComponent(lblnivelact)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(pnldatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(pnldatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnldatosLayout.createSequentialGroup()
+                            .addComponent(nivel_act_cmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(3, 3, 3))
                         .addGroup(pnldatosLayout.createSequentialGroup()
                             .addGroup(pnldatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(lblaltura)
                                 .addComponent(lblpeso)
                                 .addComponent(lblcintura)
                                 .addComponent(lblcuello)
-                                .addComponent(lblcadera))
+                                .addComponent(lblcadera)
+                                .addComponent(lblsexo))
                             .addGap(18, 18, 18)
                             .addGroup(pnldatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(peso_txt)
-                                .addComponent(altura_txt, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(cintura_txt)
-                                .addComponent(cuello_txt)
-                                .addComponent(txtcadera))
-                            .addContainerGap())
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnldatosLayout.createSequentialGroup()
-                            .addComponent(lblsexo)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(pnldatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(rbtnfemenino)
-                                .addComponent(rbtnmasculino)))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnldatosLayout.createSequentialGroup()
-                            .addComponent(nivel_act_cmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(3, 3, 3)))))
+                                .addGroup(pnldatosLayout.createSequentialGroup()
+                                    .addGap(12, 12, 12)
+                                    .addGroup(pnldatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(rbtnfemenino)
+                                        .addComponent(rbtnmasculino)))
+                                .addGroup(pnldatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(peso_txt)
+                                    .addComponent(altura_txt, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(cintura_txt)
+                                    .addComponent(cuello_txt)
+                                    .addComponent(txtcadera)))
+                            .addContainerGap()))))
         );
         pnldatosLayout.setVerticalGroup(
             pnldatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -332,27 +333,19 @@ class Interfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
             
     private void altura_txtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_altura_txtKeyTyped
-        char c=evt.getKeyChar();
-        if(c<'0' || c>'9') 
-        evt.consume();
+        if(typedNumber(evt)) evt.consume();
     }//GEN-LAST:event_altura_txtKeyTyped
 
     private void peso_txtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_peso_txtKeyTyped
-        char c=evt.getKeyChar();
-        if(c<'0' || c>'9') 
-        evt.consume();
+        if(typedNumber(evt)) evt.consume();
     }//GEN-LAST:event_peso_txtKeyTyped
 
     private void cintura_txtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cintura_txtKeyTyped
-        char c=evt.getKeyChar();
-        if(c<'0' || c>'9') 
-        evt.consume();
+        if(typedNumber(evt)) evt.consume();
     }//GEN-LAST:event_cintura_txtKeyTyped
 
     private void cuello_txtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cuello_txtKeyTyped
-        char c=evt.getKeyChar();
-        if(c<'0' || c>'9') 
-        evt.consume();
+        if(typedNumber(evt)) evt.consume();
     }//GEN-LAST:event_cuello_txtKeyTyped
 
     private void btncalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncalcularActionPerformed
@@ -427,9 +420,7 @@ class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_txtcaderaMouseClicked
 
     private void txtcaderaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcaderaKeyTyped
-        char c=evt.getKeyChar();
-        if(c<'0' || c>'9') 
-        evt.consume();
+        if(typedNumber(evt)) evt.consume();
     }//GEN-LAST:event_txtcaderaKeyTyped
 
     private void btnSiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSiguienteMouseClicked
@@ -510,6 +501,10 @@ class Interfaz extends javax.swing.JFrame {
     private javax.swing.JTextField txtcadera;
     // End of variables declaration//GEN-END:variables
 
+	
+	private boolean typedNumber(java.awt.event.KeyEvent evt) {
+		return evt.getKeyChar()<'0' || evt.getKeyChar()>'9';
+	}
 	
 	// ELIMINARA ESTA FUNCION
 	private void testConnectionDB() {

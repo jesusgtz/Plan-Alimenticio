@@ -306,6 +306,7 @@ public class Colaciones extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVolverMouseClicked
 
 
+<<<<<<< HEAD
     private void btnSiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSiguienteMouseClicked
         if(this.go==0)
         {
@@ -319,7 +320,8 @@ public class Colaciones extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnSiguienteMouseClicked
 
-
+=======
+>>>>>>> colaciones
     private void lacteos_frutas_listMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lacteos_frutas_listMouseClicked
         int[] indices = this.lacteos_frutas_list.getSelectedIndexes();
 		if(this.cseleccionadas_totales <= this.CxD) {

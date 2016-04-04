@@ -233,9 +233,12 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Siguiente"/>
           </Properties>
+<<<<<<< HEAD
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnSiguienteMouseClicked"/>
           </Events>
+=======
+>>>>>>> colaciones
         </Component>
         <Component class="java.awt.List" name="lacteos_frutas_list">
           <Properties>

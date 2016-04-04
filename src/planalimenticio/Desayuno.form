@@ -146,22 +146,18 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="frutas_list" pref="258" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="cereales_list" max="32767" attributes="0"/>
-                          <Component id="lacteos_list" pref="258" max="32767" attributes="0"/>
-                          <Component id="otros_list" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="cereales_list" max="32767" attributes="0"/>
+                      <Component id="lacteos_list" pref="258" max="32767" attributes="0"/>
+                      <Component id="otros_list" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                          <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="cseleccionadas_otros_lbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="cseleccionadas_otros_lbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="cseleccionadas_lacteos_frutas_lbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="cseleccionadas_cereales_lbl" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="cseleccionadas_lacteos_frutas_lbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="cseleccionadas_cereales_lbl" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="cseleccionadas_frutas_lbl" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
