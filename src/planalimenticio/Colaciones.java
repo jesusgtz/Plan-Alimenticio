@@ -38,7 +38,7 @@ public class Colaciones extends javax.swing.JFrame {
     public Colaciones(double CxD) {
         initComponents();
 		
-        this.CxD = Math.floor(CxD * .20);
+        this.CxD = Math.floor(CxD * .10);
 		this.cseleccionadas_totales = 0.0d;
 		this.cseleccionadas_lacteos_frutas = 0.0d;
 		this.cseleccionadas_cereales = 0.0d;
@@ -180,16 +180,8 @@ public class Colaciones extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(109, 109, 109)
-                        .addComponent(jLabel2)
-                        .addGap(135, 135, 135)
-                        .addComponent(jLabel3)
-                        .addGap(149, 149, 149)
-                        .addComponent(jLabel4)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel10)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -227,7 +219,15 @@ public class Colaciones extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(72, 72, 72)
                                 .addComponent(cseleccionadas_otros_lbl))
-                            .addComponent(jLabel9)))))
+                            .addComponent(jLabel9)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(109, 109, 109)
+                        .addComponent(jLabel2)
+                        .addGap(174, 174, 174)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel4)
+                        .addGap(128, 128, 128))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

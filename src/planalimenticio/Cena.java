@@ -13,7 +13,7 @@ import javax.swing.JLabel;
  *
  * @author Equipo1
  */
-public class Colaciones extends javax.swing.JFrame {
+public class Cena extends javax.swing.JFrame {
 	
     private Connect con;
     private ResultSet lacteos;
@@ -35,7 +35,7 @@ public class Colaciones extends javax.swing.JFrame {
     private final ArrayList<String> calorias_otros;
 	private double cseleccionadas_otros;
 
-    public Colaciones(double CxD) {
+    public Cena(double CxD) {
         initComponents();
 		
         this.CxD = Math.floor(CxD * .20);
@@ -119,7 +119,7 @@ public class Colaciones extends javax.swing.JFrame {
 
         jLabel3.setText("Cereales");
 
-        jLabel4.setText("Otros");
+        jLabel4.setText("Carne");
 
         jLabel6.setText("Calorías seleccionadas:");
 
@@ -180,16 +180,8 @@ public class Colaciones extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(109, 109, 109)
-                        .addComponent(jLabel2)
-                        .addGap(135, 135, 135)
-                        .addComponent(jLabel3)
-                        .addGap(149, 149, 149)
-                        .addComponent(jLabel4)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel10)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -227,7 +219,15 @@ public class Colaciones extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(72, 72, 72)
                                 .addComponent(cseleccionadas_otros_lbl))
-                            .addComponent(jLabel9)))))
+                            .addComponent(jLabel9)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(109, 109, 109)
+                        .addComponent(jLabel2)
+                        .addGap(135, 135, 135)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel4)
+                        .addGap(144, 144, 144))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -272,7 +272,7 @@ public class Colaciones extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Colaciones");
+        jLabel1.setText("Cena");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
