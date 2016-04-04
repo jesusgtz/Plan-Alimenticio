@@ -16,7 +16,7 @@ import javax.swing.JLabel;
  */
 public class Desayuno extends javax.swing.JFrame {
 	
-    private String[]resultados = new String [38];
+    private String[] comidas = new String [5];
     private int indiceResult = 0;
     private Connect con;
     private ResultSet lacteos;
@@ -357,9 +357,27 @@ public class Desayuno extends javax.swing.JFrame {
 
 
     private void btnSiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSiguienteMouseClicked
-        Colaciones colacion1 = new Colaciones(this.CxD / .25, 0);
-        colacion1.setVisible(true);
-        this.dispose();
+        int[] lacteos =  this.lacteos_list.getSelectedIndexes();
+        int[] cereales = this.cereales_list.getSelectedIndexes();
+        int[] frutas = this.frutas_list.getSelectedIndexes();
+        if(lacteos.length==0 && cereales.length==0 && frutas.length==0 )
+        {
+            JOptionPane.showMessageDialog(null, "Debe seleccionar al menos un alimento", "Advertencia", 2);
+        }else{
+            String aux ="";
+            String [] desayuno = this.lacteos_list.getSelectedItems();
+            for(int i=0;i<desayuno.length;i++)aux += desayuno[i]+"/";
+            desayuno = this.cereales_list.getSelectedItems();
+            for(int i=0;i<desayuno.length;i++)aux += desayuno[i]+"/";
+            desayuno = this.frutas_list.getSelectedItems();
+            for(int i=0;i<desayuno.length;i++)aux += desayuno[i]+"/";
+            desayuno = this.otros_list.getSelectedItems();
+            for(int i=0;i<desayuno.length;i++)aux += desayuno[i]+"/";
+            comidas[indiceResult] = aux;
+            Colaciones colacion1 = new Colaciones(this.CxD / .25, 0, comidas);
+            colacion1.setVisible(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_btnSiguienteMouseClicked
 
     private void lacteos_listMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lacteos_listMouseClicked
