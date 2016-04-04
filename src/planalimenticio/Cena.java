@@ -16,6 +16,7 @@ import javax.swing.JLabel;
 public class Cena extends javax.swing.JFrame {
 	
     private Connect con;
+    private String[] comidas = new String [5];
     private ResultSet lacteos;
     private ResultSet cereales;
     private ResultSet fruta;
@@ -35,26 +36,27 @@ public class Cena extends javax.swing.JFrame {
     private final ArrayList<String> calorias_otros;
 	private double cseleccionadas_otros;
 
-    public Cena(double CxD) {
+    public Cena(double CxD, String [] comidas) {
         initComponents();
 		
+        this.comidas = comidas;
         this.CxD = Math.floor(CxD * .20);
-		this.cseleccionadas_totales = 0.0d;
-		this.cseleccionadas_lacteos_frutas = 0.0d;
-		this.cseleccionadas_cereales = 0.0d;
-		this.cseleccionadas_otros = 0.0d;
-		
-		this.ctotales_lbl.setText("" + this.CxD);
-		this.cseleccionadas_lacteos_frutas_lbl.setText("0.0");
-		this.cseleccionadas_cereales_lbl.setText("0.0");
-		this.cseleccionadas_otros_lbl.setText("0.0");
-		
-		this.cseleccionadas_total_lbl.setText("0.0");
-		this.cfaltantes_lbl.setText("0.0");
-		
-		this.lacteos_frutas_selected_items = null;
-		this.cereales_selected_items = null;
-		this.otros_selected_items = null;
+        this.cseleccionadas_totales = 0.0d;
+        this.cseleccionadas_lacteos_frutas = 0.0d;
+        this.cseleccionadas_cereales = 0.0d;
+        this.cseleccionadas_otros = 0.0d;
+
+        this.ctotales_lbl.setText("" + this.CxD);
+        this.cseleccionadas_lacteos_frutas_lbl.setText("0.0");
+        this.cseleccionadas_cereales_lbl.setText("0.0");
+        this.cseleccionadas_otros_lbl.setText("0.0");
+
+        this.cseleccionadas_total_lbl.setText("0.0");
+        this.cfaltantes_lbl.setText("0.0");
+
+        this.lacteos_frutas_selected_items = null;
+        this.cereales_selected_items = null;
+        this.otros_selected_items = null;
         
         ToList toList = loadLists("Tipo='Lacteos' OR Tipo='Frutas'");
         this.calorias_lacteos_frutas = toList.getArray();
@@ -302,7 +304,27 @@ public class Cena extends javax.swing.JFrame {
 
 
     private void btnVolver1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolver1MouseClicked
-        // TODO add your handling code here:
+        int[] lacteos =  this.lacteos_frutas_list.getSelectedIndexes();
+        int[] cereales = this.cereales_list.getSelectedIndexes();
+        int[] otros = this.otros_list.getSelectedIndexes();
+        if(lacteos.length==0 && cereales.length==0 && otros.length==0 )
+        {
+            JOptionPane.showMessageDialog(null, "Debe seleccionar al menos un alimento", "Advertencia", 2);
+        }else{
+            String aux ="";
+            String [] desayuno = this.lacteos_frutas_list.getSelectedItems();
+            for(int i=0;i<desayuno.length;i++)aux += desayuno[i]+", ";
+            desayuno = this.cereales_list.getSelectedItems();
+            for(int i=0;i<desayuno.length;i++)aux += desayuno[i]+", ";
+            desayuno = this.otros_list.getSelectedItems();
+            for(int i=0;i<desayuno.length;i++)aux += desayuno[i]+", ";
+            aux +="$"+ cseleccionadas_totales;
+            comidas[4] = aux;
+            JOptionPane.showMessageDialog(null,comidas[0]+"  "+ comidas[1]+"  "+comidas[2]+"  "+comidas[3]+"  "+ comidas[4],"Advertencia", 2);
+            Resultados resultado = new Resultados(this.CxD / .20, comidas);
+            resultado.setVisible(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_btnVolver1MouseClicked
 
     private void lacteos_frutas_listMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lacteos_frutas_listMouseClicked

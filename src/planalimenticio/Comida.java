@@ -16,8 +16,7 @@ import javax.swing.JLabel;
  */
 public class Comida extends javax.swing.JFrame {
 	
-    private String[]resultados = new String [38];
-    private int indiceResult = 0;
+    private String[] comidas = new String [5];
     private Connect con;
     private ResultSet lacteos;
     private ResultSet cereales;
@@ -47,9 +46,9 @@ public class Comida extends javax.swing.JFrame {
     private final ArrayList<String> calorias_carne;
     private double cseleccionadas_carne;
 
-    public Comida(double CxD) {
+    public Comida(double CxD, String [] comidas) {
         initComponents();
-		
+        this.comidas = comidas;
         this.CxD = Math.floor(CxD * .35);
         this.cseleccionadas_totales = 0.0d;
         this.cseleccionadas_lacteos = 0.0d;
@@ -402,9 +401,32 @@ public class Comida extends javax.swing.JFrame {
 
 
     private void btnSiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSiguienteMouseClicked
-        Colaciones colacion1 = new Colaciones(this.CxD / .35, 1);
-        colacion1.setVisible(true);
-        this.dispose();
+        int[] lacteos =  this.lacteos_list.getSelectedIndexes();
+        int[] cereales = this.cereales_list.getSelectedIndexes();
+        int[] frutas = this.frutas_list.getSelectedIndexes();
+        int[] verdura = this.vegetales_list.getSelectedIndexes();
+        int[] carne = this.carne_list.getSelectedIndexes();
+        if(lacteos.length==0 && cereales.length==0 && frutas.length==0 && verdura.length==0 && carne.length==0)
+        {
+            JOptionPane.showMessageDialog(null, "Debe seleccionar al menos un alimento", "Advertencia", 2);
+        }else{
+            String aux ="";
+            String [] comida = this.lacteos_list.getSelectedItems();
+            for(int i=0;i<comida.length;i++)aux += comida[i]+", ";
+            comida = this.cereales_list.getSelectedItems();
+            for(int i=0;i<comida.length;i++)aux += comida[i]+", ";
+            comida = this.frutas_list.getSelectedItems();
+            for(int i=0;i<comida.length;i++)aux += comida[i]+", ";
+            comida = this.vegetales_list.getSelectedItems();
+            for(int i=0;i<comida.length;i++)aux += comida[i]+", ";
+            comida = this.carne_list.getSelectedItems();
+            for(int i=0;i<comida.length;i++)aux += comida[i]+", ";
+            aux +="$"+ cseleccionadas_totales;
+            comidas[2] = aux;
+            Colaciones colacion1 = new Colaciones(this.CxD / .25, 1, comidas);
+            colacion1.setVisible(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_btnSiguienteMouseClicked
 
     private void lacteos_listMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lacteos_listMouseClicked

@@ -315,20 +315,22 @@ public class Colaciones extends javax.swing.JFrame {
         }else{
             String aux ="";
             String [] colaciones = this.lacteos_frutas_list.getSelectedItems();
-            for(int i=0;i<colaciones.length;i++)aux += colaciones[i]+"/";
+            for(int i=0;i<colaciones.length;i++)aux += colaciones[i]+", ";
             colaciones = this.cereales_list.getSelectedItems();
-            for(int i=0;i<colaciones.length;i++)aux += colaciones[i]+"/";
+            for(int i=0;i<colaciones.length;i++)aux += colaciones[i]+", ";
             colaciones = this.otros_list.getSelectedItems();
-            for(int i=0;i<colaciones.length;i++)aux += colaciones[i]+"/";    
+            for(int i=0;i<colaciones.length;i++)aux += colaciones[i]+", ";
+            aux +="$"+ cseleccionadas_totales;
             if(this.go==0)
             {
-                Comida comida = new Comida (this.CxD /.10);
+                comidas[1] = aux; 
+                Comida comida = new Comida (this.CxD /.10, comidas);
                 comida.setVisible(true);
-                comidas[1] = aux;  
+                 
             }else{
-                Cena cena = new Cena(this.CxD /.10);
-                cena.setVisible(true);
-                comidas[3] = aux;  
+                comidas[3] = aux;
+                Cena cena = new Cena(this.CxD /.10, comidas);
+                cena.setVisible(true);  
             }
             this.dispose();
         }
