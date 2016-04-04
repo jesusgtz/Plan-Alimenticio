@@ -39,6 +39,7 @@ public class Resultados extends javax.swing.JFrame {
         total+= Double.parseDouble(split(comidas[3])[1]);
         total+= Double.parseDouble(split(comidas[4])[1]);
         ctotal_lbl.setText(": "+total);
+        CxD_lbl.setText(": "+this.CxD);
     }
 public String[] split(String some)
 {
@@ -70,6 +71,8 @@ public String[] split(String some)
         jButton1 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         ctotal_lbl = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        CxD_lbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -128,16 +131,22 @@ public String[] split(String some)
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(102, 102, 255));
-        jLabel8.setText("Cena");
+        jLabel8.setText("Total");
 
         ctotal_lbl.setText("jLabel7");
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(102, 102, 255));
+        jLabel9.setText("De ");
+
+        CxD_lbl.setText("jLabel7");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(196, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(188, 188, 188))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -147,7 +156,11 @@ public String[] split(String some)
                         .addComponent(jLabel8)
                         .addGap(27, 27, 27)
                         .addComponent(ctotal_lbl)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(41, 41, 41)
+                        .addComponent(jLabel9)
+                        .addGap(34, 34, 34)
+                        .addComponent(CxD_lbl)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 149, Short.MAX_VALUE)
                         .addComponent(jButton1)
                         .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -223,7 +236,9 @@ public String[] split(String some)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jLabel8)
-                    .addComponent(ctotal_lbl))
+                    .addComponent(ctotal_lbl)
+                    .addComponent(jLabel9)
+                    .addComponent(CxD_lbl))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -248,6 +263,7 @@ public String[] split(String some)
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel CxD_lbl;
     private javax.swing.JLabel ccena_lbl;
     private javax.swing.JLabel ccomida_lbl;
     private javax.swing.JLabel cdesayuno_lbl;
@@ -265,6 +281,7 @@ public String[] split(String some)
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel pcolacion_lbl;
     private javax.swing.JLabel scolacion_lbl;
