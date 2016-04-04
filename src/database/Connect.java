@@ -23,13 +23,13 @@ public class Connect {
 		this.password = "";
 		this.conn = null;
 		
-		try {
+        try {
             Class.forName("com.mysql.jdbc.Driver");
             this.conn = DriverManager.getConnection(this.host + this.dbname, this.username, this.password);
 			this.stm = conn.createStatement();
             System.out.println("Conexion exitosa a base de datos...");
-        } catch (ClassNotFoundException | SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }catch (ClassNotFoundException | SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Falla en la conexion:  "+ ex.getMessage());
         }
 	}
 	

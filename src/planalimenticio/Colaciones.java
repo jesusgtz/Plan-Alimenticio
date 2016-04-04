@@ -16,6 +16,9 @@ import javax.swing.JLabel;
 public class Colaciones extends javax.swing.JFrame {
 	
     private Connect con;
+    private int go;
+    private String[] comidas = new String [5];
+    private int indiceResult = 0;
     private ResultSet lacteos;
     private ResultSet cereales;
     private ResultSet fruta;
@@ -35,26 +38,28 @@ public class Colaciones extends javax.swing.JFrame {
     private final ArrayList<String> calorias_otros;
 	private double cseleccionadas_otros;
 
-    public Colaciones(double CxD) {
+    public Colaciones(double CxD,int go, String [] comidas) {
         initComponents();
 		
-        this.CxD = Math.floor(CxD * .20);
-		this.cseleccionadas_totales = 0.0d;
-		this.cseleccionadas_lacteos_frutas = 0.0d;
-		this.cseleccionadas_cereales = 0.0d;
-		this.cseleccionadas_otros = 0.0d;
-		
-		this.ctotales_lbl.setText("" + this.CxD);
-		this.cseleccionadas_lacteos_frutas_lbl.setText("0.0");
-		this.cseleccionadas_cereales_lbl.setText("0.0");
-		this.cseleccionadas_otros_lbl.setText("0.0");
-		
-		this.cseleccionadas_total_lbl.setText("0.0");
-		this.cfaltantes_lbl.setText("0.0");
-		
-		this.lacteos_frutas_selected_items = null;
-		this.cereales_selected_items = null;
-		this.otros_selected_items = null;
+        this.CxD = Math.floor(CxD * .10);
+        this.go = go;
+        this.comidas = comidas;
+        this.cseleccionadas_totales = 0.0d;
+        this.cseleccionadas_lacteos_frutas = 0.0d;
+        this.cseleccionadas_cereales = 0.0d;
+        this.cseleccionadas_otros = 0.0d;
+
+        this.ctotales_lbl.setText("" + this.CxD);
+        this.cseleccionadas_lacteos_frutas_lbl.setText("0.0");
+        this.cseleccionadas_cereales_lbl.setText("0.0");
+        this.cseleccionadas_otros_lbl.setText("0.0");
+
+        this.cseleccionadas_total_lbl.setText("0.0");
+        this.cfaltantes_lbl.setText("0.0");
+
+        this.lacteos_frutas_selected_items = null;
+        this.cereales_selected_items = null;
+        this.otros_selected_items = null;
         
         ToList toList = loadLists("Tipo='Lacteos' OR Tipo='Frutas'");
         this.calorias_lacteos_frutas = toList.getArray();
@@ -82,7 +87,7 @@ public class Colaciones extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jpanel = new javax.swing.JPanel();
         btnVolver = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -93,7 +98,7 @@ public class Colaciones extends javax.swing.JFrame {
         cfaltantes_lbl = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         ctotales_lbl = new javax.swing.JLabel();
-        btnVolver1 = new javax.swing.JButton();
+        btnSiguiente = new javax.swing.JButton();
         lacteos_frutas_list = new java.awt.List();
         cereales_list = new java.awt.List();
         otros_list = new java.awt.List();
@@ -133,11 +138,11 @@ public class Colaciones extends javax.swing.JFrame {
 
         ctotales_lbl.setText(Double.toString(this.CxD));
 
-        btnVolver1.setBackground(new java.awt.Color(102, 204, 0));
-        btnVolver1.setText("Siguiente");
-        btnVolver1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnSiguiente.setBackground(new java.awt.Color(102, 204, 0));
+        btnSiguiente.setText("Siguiente");
+        btnSiguiente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnVolver1MouseClicked(evt);
+                btnSiguienteMouseClicked(evt);
             }
         });
 
@@ -174,100 +179,100 @@ public class Colaciones extends javax.swing.JFrame {
 
         cseleccionadas_otros_lbl.setText("value");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout jpanelLayout = new javax.swing.GroupLayout(jpanel);
+        jpanel.setLayout(jpanelLayout);
+        jpanelLayout.setHorizontalGroup(
+            jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(109, 109, 109)
-                        .addComponent(jLabel2)
-                        .addGap(135, 135, 135)
-                        .addComponent(jLabel3)
-                        .addGap(149, 149, 149)
-                        .addComponent(jLabel4)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jpanelLayout.createSequentialGroup()
+                        .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel10)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(jpanelLayout.createSequentialGroup()
+                                .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jpanelLayout.createSequentialGroup()
                                         .addGap(81, 81, 81)
                                         .addComponent(lacteos_frutas_list, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jpanelLayout.createSequentialGroup()
+                                        .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel6)
                                             .addComponent(jLabel7))
                                         .addGap(18, 18, 18)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(cfaltantes_lbl)
                                             .addComponent(cseleccionadas_total_lbl)
                                             .addComponent(ctotales_lbl)
                                             .addComponent(cseleccionadas_lacteos_frutas_lbl)))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGroup(jpanelLayout.createSequentialGroup()
                                         .addGap(82, 82, 82)
                                         .addComponent(jLabel5)))
                                 .addGap(44, 44, 44)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jpanelLayout.createSequentialGroup()
                                         .addGap(72, 72, 72)
                                         .addComponent(cseleccionadas_cereales_lbl))
                                     .addComponent(jLabel8)
                                     .addComponent(cereales_list, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnVolver1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jpanelLayout.createSequentialGroup()
+                                .addComponent(btnSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(otros_list, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(jpanelLayout.createSequentialGroup()
                                 .addGap(72, 72, 72)
                                 .addComponent(cseleccionadas_otros_lbl))
-                            .addComponent(jLabel9)))))
+                            .addComponent(jLabel9)))
+                    .addGroup(jpanelLayout.createSequentialGroup()
+                        .addGap(109, 109, 109)
+                        .addComponent(jLabel2)
+                        .addGap(174, 174, 174)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel4)
+                        .addGap(128, 128, 128))))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        jpanelLayout.setVerticalGroup(
+            jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(cereales_list, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lacteos_frutas_list, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
                     .addComponent(otros_list, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel9)
                         .addComponent(cseleccionadas_otros_lbl))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel5)
                         .addComponent(cseleccionadas_lacteos_frutas_lbl)
                         .addComponent(jLabel8)
                         .addComponent(cseleccionadas_cereales_lbl)))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(cseleccionadas_total_lbl))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(cfaltantes_lbl))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(ctotales_lbl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnVolver1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btnSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -280,7 +285,7 @@ public class Colaciones extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -288,7 +293,7 @@ public class Colaciones extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -301,9 +306,18 @@ public class Colaciones extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVolverMouseClicked
 
 
-    private void btnVolver1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolver1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnVolver1MouseClicked
+    private void btnSiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSiguienteMouseClicked
+        if(this.go==0)
+        {
+            Comida comida = new Comida (this.CxD /.10);
+            comida.setVisible(true);
+        }else{
+            Cena cena = new Cena(this.CxD /.10);
+            cena.setVisible(true);
+        }
+        this.dispose();
+        
+    }//GEN-LAST:event_btnSiguienteMouseClicked
 
     private void lacteos_frutas_listMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lacteos_frutas_listMouseClicked
         int[] indices = this.lacteos_frutas_list.getSelectedIndexes();
@@ -397,8 +411,8 @@ public class Colaciones extends javax.swing.JFrame {
 	}
 	
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSiguiente;
     private javax.swing.JButton btnVolver;
-    private javax.swing.JButton btnVolver1;
     private java.awt.List cereales_list;
     private javax.swing.JLabel cfaltantes_lbl;
     private javax.swing.JLabel cseleccionadas_cereales_lbl;
@@ -416,7 +430,7 @@ public class Colaciones extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jpanel;
     private java.awt.List lacteos_frutas_list;
     private java.awt.List otros_list;
     // End of variables declaration//GEN-END:variables
