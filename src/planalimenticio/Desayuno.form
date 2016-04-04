@@ -25,7 +25,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jLabel1" max="32767" attributes="0"/>
           <Group type="102" alignment="0" attributes="0">
-              <Component id="cseleccionadas_lacteos_lbl" max="32767" attributes="0"/>
+              <Component id="JPanel" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -35,13 +35,13 @@
           <Group type="102" alignment="1" attributes="0">
               <Component id="jLabel1" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="cseleccionadas_lacteos_lbl" min="-2" max="-2" attributes="0"/>
+              <Component id="JPanel" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="cseleccionadas_lacteos_lbl">
+    <Container class="javax.swing.JPanel" name="JPanel">
 
       <Layout>
         <DimensionLayout dim="0">

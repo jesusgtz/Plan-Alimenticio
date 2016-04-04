@@ -22,7 +22,8 @@ public class Comida extends javax.swing.JFrame {
     private ResultSet lacteos;
     private ResultSet cereales;
     private ResultSet fruta;
-    private ResultSet otros;
+    private ResultSet carne;
+    private ResultSet vegetales;
     private final double CxD;
     private double cseleccionadas_totales;
 
@@ -38,9 +39,13 @@ public class Comida extends javax.swing.JFrame {
     private final ArrayList<String> calorias_frutas;
     private double cseleccionadas_frutas;
 
-    private int[] otros_selected_items;
-    private final ArrayList<String> calorias_otros;
-    private double cseleccionadas_otros;
+    private int[] vegetales_selected_items;
+    private final ArrayList<String> calorias_vegetales;
+    private double cseleccionadas_vegetales;
+    
+    private int[] carne_selected_items;
+    private final ArrayList<String> calorias_carne;
+    private double cseleccionadas_carne;
 
     public Comida(double CxD) {
         initComponents();
@@ -50,13 +55,15 @@ public class Comida extends javax.swing.JFrame {
         this.cseleccionadas_lacteos = 0.0d;
         this.cseleccionadas_frutas = 0.0d;
         this.cseleccionadas_cereales = 0.0d;
-        this.cseleccionadas_otros = 0.0d;
+        this.cseleccionadas_vegetales = 0.0d;
+        this.cseleccionadas_carne = 0.0d;
 
         this.ctotales_lbl.setText("" + this.CxD);
         this.cseleccionadas_lacteos_frutas_lbl.setText("0.0");
         this.cseleccionadas_cereales_lbl.setText("0.0");
         this.cseleccionadas_frutas_lbl.setText("0.0");
-        this.cseleccionadas_otros_lbl.setText("0.0");
+        this.cseleccionadas_vegetales_lbl.setText("0.0");
+        this.cseleccionadas_carne_lbl.setText("0.0");
 
         this.cseleccionadas_total_lbl.setText("0.0");
         this.cfaltantes_lbl.setText("0.0");
@@ -64,7 +71,8 @@ public class Comida extends javax.swing.JFrame {
         this.lacteos_selected_items = null;
         this.cereales_selected_items = null;
         this.frutas_selected_items = null;
-        this.otros_selected_items = null;
+        this.vegetales_selected_items = null;
+        this.carne_selected_items = null;
         
         ToList toList = loadLists("Tipo='Lacteos'");
         this.calorias_lacteos = toList.getArray();
@@ -87,11 +95,18 @@ public class Comida extends javax.swing.JFrame {
             this.frutas_list.add(li.getItem(i));
         }
         
-        toList = loadLists("Tipo='Otros'");
-        this.calorias_otros = toList.getArray();
+        toList = loadLists("Tipo='Vegetales'");
+        this.calorias_vegetales = toList.getArray();
         li = toList.getList();
         for(int i=0, n = toList.getSize(); i<n; i++) {
-            this.otros_list.add(li.getItem(i));
+            this.vegetales_list.add(li.getItem(i));
+        }
+        
+        toList = loadLists("Tipo='Carne Roja' OR Tipo='Pescados y Mariscos' OR Tipo='Carne Blanca'");
+        this.calorias_carne = toList.getArray();
+        li = toList.getList();
+        for(int i=0, n = toList.getSize(); i<n; i++) {
+            this.carne_list.add(li.getItem(i));
         }
     }
 
@@ -113,17 +128,21 @@ public class Comida extends javax.swing.JFrame {
         btnSiguiente = new javax.swing.JButton();
         lacteos_list = new java.awt.List();
         cereales_list = new java.awt.List();
-        otros_list = new java.awt.List();
+        vegetales_list = new java.awt.List();
         cseleccionadas_lacteos_frutas_lbl = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         cseleccionadas_cereales_lbl = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        cseleccionadas_otros_lbl = new javax.swing.JLabel();
+        cseleccionadas_vegetales_lbl = new javax.swing.JLabel();
         frutas_list = new java.awt.List();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         cseleccionadas_frutas_lbl = new javax.swing.JLabel();
+        carne_list = new java.awt.List();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        cseleccionadas_carne_lbl = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -140,7 +159,7 @@ public class Comida extends javax.swing.JFrame {
 
         jLabel3.setText("Cereales");
 
-        jLabel4.setText("Otros");
+        jLabel4.setText("Verdura");
 
         jLabel6.setText("Calorías seleccionadas:");
 
@@ -176,10 +195,10 @@ public class Comida extends javax.swing.JFrame {
             }
         });
 
-        otros_list.setMultipleMode(true);
-        otros_list.addMouseListener(new java.awt.event.MouseAdapter() {
+        vegetales_list.setMultipleMode(true);
+        vegetales_list.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                otros_listMouseClicked(evt);
+                vegetales_listMouseClicked(evt);
             }
         });
 
@@ -193,7 +212,7 @@ public class Comida extends javax.swing.JFrame {
 
         jLabel9.setText("Calorias:");
 
-        cseleccionadas_otros_lbl.setText("value");
+        cseleccionadas_vegetales_lbl.setText("value");
 
         frutas_list.setMultipleMode(true);
         frutas_list.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -207,6 +226,19 @@ public class Comida extends javax.swing.JFrame {
         jLabel12.setText("Calorias:");
 
         cseleccionadas_frutas_lbl.setText("value");
+
+        carne_list.setMultipleMode(true);
+        carne_list.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                carne_listMouseClicked(evt);
+            }
+        });
+
+        jLabel13.setText("Carne");
+
+        jLabel14.setText("Calorias:");
+
+        cseleccionadas_carne_lbl.setText("value");
 
         javax.swing.GroupLayout cseleccionadas_lacteos_lblLayout = new javax.swing.GroupLayout(cseleccionadas_lacteos_lbl);
         cseleccionadas_lacteos_lbl.setLayout(cseleccionadas_lacteos_lblLayout);
@@ -223,61 +255,69 @@ public class Comida extends javax.swing.JFrame {
                         .addGap(0, 13, Short.MAX_VALUE))
                     .addGroup(cseleccionadas_lacteos_lblLayout.createSequentialGroup()
                         .addGroup(cseleccionadas_lacteos_lblLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10)
                             .addGroup(cseleccionadas_lacteos_lblLayout.createSequentialGroup()
                                 .addGroup(cseleccionadas_lacteos_lblLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel10)
                                     .addGroup(cseleccionadas_lacteos_lblLayout.createSequentialGroup()
                                         .addGroup(cseleccionadas_lacteos_lblLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(cseleccionadas_lacteos_lblLayout.createSequentialGroup()
-                                                .addGroup(cseleccionadas_lacteos_lblLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabel6)
-                                                    .addComponent(jLabel7))
-                                                .addGap(18, 18, 18))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cseleccionadas_lacteos_lblLayout.createSequentialGroup()
-                                                .addComponent(jLabel5)
-                                                .addGap(31, 31, 31)))
-                                        .addGroup(cseleccionadas_lacteos_lblLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(cfaltantes_lbl)
-                                            .addComponent(cseleccionadas_total_lbl)
-                                            .addComponent(ctotales_lbl)
-                                            .addGroup(cseleccionadas_lacteos_lblLayout.createSequentialGroup()
-                                                .addComponent(cseleccionadas_lacteos_frutas_lbl)
-                                                .addGap(83, 83, 83)
-                                                .addComponent(jLabel8)
-                                                .addGap(35, 35, 35)
-                                                .addComponent(cseleccionadas_cereales_lbl)))))
-                                .addGap(95, 95, 95)
-                                .addComponent(jLabel12)
-                                .addGap(28, 28, 28)
-                                .addComponent(cseleccionadas_frutas_lbl))
+                                            .addComponent(jLabel6)
+                                            .addComponent(jLabel7))
+                                        .addGap(18, 18, 18))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cseleccionadas_lacteos_lblLayout.createSequentialGroup()
+                                        .addComponent(jLabel5)
+                                        .addGap(31, 31, 31)))
+                                .addGroup(cseleccionadas_lacteos_lblLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cfaltantes_lbl)
+                                    .addComponent(cseleccionadas_total_lbl)
+                                    .addComponent(ctotales_lbl)
+                                    .addGroup(cseleccionadas_lacteos_lblLayout.createSequentialGroup()
+                                        .addComponent(cseleccionadas_lacteos_frutas_lbl)
+                                        .addGap(38, 38, 38)
+                                        .addComponent(jLabel8)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(cseleccionadas_cereales_lbl)
+                                        .addGap(54, 54, 54)
+                                        .addComponent(jLabel12)
+                                        .addGap(16, 16, 16)
+                                        .addComponent(cseleccionadas_frutas_lbl))
+                                    .addGroup(cseleccionadas_lacteos_lblLayout.createSequentialGroup()
+                                        .addGap(186, 186, 186)
+                                        .addComponent(frutas_list, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(cseleccionadas_lacteos_lblLayout.createSequentialGroup()
                                 .addGap(32, 32, 32)
-                                .addComponent(lacteos_list, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(cereales_list, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(58, 58, 58)
-                                .addComponent(frutas_list, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(53, 53, 53)))
+                                .addComponent(lacteos_list, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(19, 19, 19)
+                                .addComponent(cereales_list, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
                         .addGroup(cseleccionadas_lacteos_lblLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(vegetales_list, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(cseleccionadas_lacteos_lblLayout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addComponent(jLabel9)
-                                .addGap(46, 46, 46)
-                                .addComponent(cseleccionadas_otros_lbl)
-                                .addContainerGap())
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cseleccionadas_lacteos_lblLayout.createSequentialGroup()
-                                .addComponent(otros_list, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(42, 42, 42))))
+                                .addGap(18, 18, 18)
+                                .addComponent(cseleccionadas_vegetales_lbl)))
+                        .addGroup(cseleccionadas_lacteos_lblLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(cseleccionadas_lacteos_lblLayout.createSequentialGroup()
+                                .addGap(35, 35, 35)
+                                .addComponent(jLabel14)
+                                .addGap(18, 18, 18)
+                                .addComponent(cseleccionadas_carne_lbl))
+                            .addGroup(cseleccionadas_lacteos_lblLayout.createSequentialGroup()
+                                .addGap(25, 25, 25)
+                                .addComponent(carne_list, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(cseleccionadas_lacteos_lblLayout.createSequentialGroup()
                         .addGap(83, 83, 83)
                         .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(93, 93, 93)
                         .addComponent(jLabel3)
-                        .addGap(160, 160, 160)
+                        .addGap(117, 117, 117)
                         .addComponent(jLabel11)
-                        .addGap(171, 171, 171)
+                        .addGap(100, 100, 100)
                         .addComponent(jLabel4)
-                        .addGap(104, 104, 104))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel13)
+                        .addGap(112, 112, 112))))
         );
         cseleccionadas_lacteos_lblLayout.setVerticalGroup(
             cseleccionadas_lacteos_lblLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -287,24 +327,30 @@ public class Comida extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel11))
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel13))
                 .addGap(18, 18, 18)
                 .addGroup(cseleccionadas_lacteos_lblLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(frutas_list, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
-                    .addComponent(cereales_list, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lacteos_list, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
-                    .addComponent(otros_list, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(carne_list, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
+                    .addGroup(cseleccionadas_lacteos_lblLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(frutas_list, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
+                        .addComponent(cereales_list, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lacteos_list, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
+                        .addComponent(vegetales_list, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(cseleccionadas_lacteos_lblLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9)
-                    .addComponent(cseleccionadas_otros_lbl)
                     .addComponent(cseleccionadas_lacteos_frutas_lbl)
-                    .addComponent(jLabel8)
-                    .addComponent(cseleccionadas_cereales_lbl)
+                    .addGroup(cseleccionadas_lacteos_lblLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel8)
+                        .addComponent(cseleccionadas_cereales_lbl))
                     .addGroup(cseleccionadas_lacteos_lblLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel12)
+                        .addComponent(jLabel5)
                         .addComponent(cseleccionadas_frutas_lbl)
-                        .addComponent(jLabel5)))
+                        .addComponent(jLabel9)
+                        .addComponent(cseleccionadas_vegetales_lbl)
+                        .addComponent(jLabel14)
+                        .addComponent(cseleccionadas_carne_lbl)))
                 .addGap(18, 18, 18)
                 .addGroup(cseleccionadas_lacteos_lblLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -325,15 +371,16 @@ public class Comida extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Desayuno");
+        jLabel1.setText("Comida");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(cseleccionadas_lacteos_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cseleccionadas_lacteos_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -371,7 +418,7 @@ public class Comida extends javax.swing.JFrame {
         this.cseleccionadas_lacteos = getCaloriasSeleccionadas(indices, this.calorias_lacteos);
         this.cseleccionadas_lacteos_frutas_lbl.setText("" + this.cseleccionadas_lacteos);
 
-        this.cseleccionadas_totales = (this.cseleccionadas_lacteos + this.cseleccionadas_cereales + this.cseleccionadas_frutas + this.cseleccionadas_otros);
+        this.cseleccionadas_totales = (this.cseleccionadas_lacteos + this.cseleccionadas_cereales + this.cseleccionadas_frutas + this.cseleccionadas_vegetales + this.cseleccionadas_carne);
         this.setCaloriasFaltantes(this.cfaltantes_lbl, this.cseleccionadas_totales, this.CxD);
         this.cseleccionadas_total_lbl.setText("" + this.cseleccionadas_totales);
     }//GEN-LAST:event_lacteos_listMouseClicked
@@ -388,27 +435,27 @@ public class Comida extends javax.swing.JFrame {
         this.cseleccionadas_cereales = getCaloriasSeleccionadas(indices, this.calorias_cereales);
         this.cseleccionadas_cereales_lbl.setText("" + this.cseleccionadas_cereales);
 
-        this.cseleccionadas_totales = (this.cseleccionadas_lacteos + this.cseleccionadas_cereales + this.cseleccionadas_frutas + this.cseleccionadas_otros);
+        this.cseleccionadas_totales = (this.cseleccionadas_lacteos + this.cseleccionadas_cereales + this.cseleccionadas_frutas + this.cseleccionadas_vegetales + this.cseleccionadas_carne);
         this.setCaloriasFaltantes(this.cfaltantes_lbl, this.cseleccionadas_totales, this.CxD);
-        this.cseleccionadas_total_lbl.setText("" + (this.cseleccionadas_lacteos + this.cseleccionadas_cereales + this.cseleccionadas_frutas + this.cseleccionadas_otros));
+        this.cseleccionadas_total_lbl.setText("" + (this.cseleccionadas_lacteos + this.cseleccionadas_cereales + this.cseleccionadas_frutas + this.cseleccionadas_vegetales +this.cseleccionadas_carne));
     }//GEN-LAST:event_cereales_listMouseClicked
 
-    private void otros_listMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_otros_listMouseClicked
-        int []indices = this.otros_list.getSelectedIndexes();
+    private void vegetales_listMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_vegetales_listMouseClicked
+        int []indices = this.vegetales_list.getSelectedIndexes();
         if(indices.length > 2) {
             JOptionPane.showMessageDialog(null, "No se debe seleccionar más de "
                     + "2 raciones de este tipo de alimento", "Advertencia", 2);
-            this.otros_list.deselect(indices[2]);
+            this.vegetales_list.deselect(indices[2]);
         }
 		
-		this.otros_selected_items = indices;
-		this.cseleccionadas_otros = getCaloriasSeleccionadas(indices, this.calorias_otros);
-		this.cseleccionadas_otros_lbl.setText("" + this.cseleccionadas_otros);
+		this.vegetales_selected_items = indices;
+		this.cseleccionadas_vegetales = getCaloriasSeleccionadas(indices, this.calorias_vegetales);
+		this.cseleccionadas_vegetales_lbl.setText("" + this.cseleccionadas_vegetales);
 		
-		this.cseleccionadas_totales = (this.cseleccionadas_lacteos + this.cseleccionadas_frutas + this.cseleccionadas_cereales + this.cseleccionadas_otros);
+		this.cseleccionadas_totales = (this.cseleccionadas_lacteos + this.cseleccionadas_frutas + this.cseleccionadas_cereales + this.cseleccionadas_vegetales + this.cseleccionadas_carne);
 		this.setCaloriasFaltantes(this.cfaltantes_lbl, this.cseleccionadas_totales, this.CxD);
-		this.cseleccionadas_total_lbl.setText("" + (this.cseleccionadas_lacteos + this.cseleccionadas_cereales + this.cseleccionadas_frutas + this.cseleccionadas_otros));
-    }//GEN-LAST:event_otros_listMouseClicked
+		this.cseleccionadas_total_lbl.setText("" + (this.cseleccionadas_lacteos + this.cseleccionadas_cereales + this.cseleccionadas_frutas + this.cseleccionadas_vegetales + this.cseleccionadas_carne));
+    }//GEN-LAST:event_vegetales_listMouseClicked
 
     private void frutas_listMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_frutas_listMouseClicked
         int []indices = this.frutas_list.getSelectedIndexes();
@@ -422,10 +469,27 @@ public class Comida extends javax.swing.JFrame {
         this.cseleccionadas_frutas = getCaloriasSeleccionadas(indices, this.calorias_frutas);
         this.cseleccionadas_frutas_lbl.setText("" + this.cseleccionadas_frutas);
 
-        this.cseleccionadas_totales = (this.cseleccionadas_lacteos + this.cseleccionadas_cereales + this.cseleccionadas_frutas + this.cseleccionadas_otros);
+        this.cseleccionadas_totales = (this.cseleccionadas_lacteos + this.cseleccionadas_cereales + this.cseleccionadas_frutas + this.cseleccionadas_vegetales + this.cseleccionadas_carne);
         this.setCaloriasFaltantes(this.cfaltantes_lbl, this.cseleccionadas_totales, this.CxD);
-        this.cseleccionadas_total_lbl.setText("" + (this.cseleccionadas_lacteos + this.cseleccionadas_cereales + this.cseleccionadas_frutas + this.cseleccionadas_otros));
+        this.cseleccionadas_total_lbl.setText("" + (this.cseleccionadas_lacteos + this.cseleccionadas_cereales + this.cseleccionadas_frutas + this.cseleccionadas_vegetales + this.cseleccionadas_carne));
     }//GEN-LAST:event_frutas_listMouseClicked
+
+    private void carne_listMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carne_listMouseClicked
+         int []indices = this.carne_list.getSelectedIndexes();
+        if(indices.length > 2) {
+            JOptionPane.showMessageDialog(null, "No se debe seleccionar más de "
+                    + "2 raciones de este tipo de alimento", "Advertencia", 2);
+            this.carne_list.deselect(indices[2]);
+        }
+		
+        this.carne_selected_items = indices;
+        this.cseleccionadas_carne = getCaloriasSeleccionadas(indices, this.calorias_carne);
+        this.cseleccionadas_carne_lbl.setText("" + this.cseleccionadas_carne);
+
+        this.cseleccionadas_totales = (this.cseleccionadas_lacteos + this.cseleccionadas_cereales + this.cseleccionadas_frutas + this.cseleccionadas_vegetales + this.cseleccionadas_carne);
+        this.setCaloriasFaltantes(this.cfaltantes_lbl, this.cseleccionadas_totales, this.CxD);
+        this.cseleccionadas_total_lbl.setText("" + (this.cseleccionadas_lacteos + this.cseleccionadas_cereales + this.cseleccionadas_frutas + this.cseleccionadas_vegetales + this.cseleccionadas_carne));
+    }//GEN-LAST:event_carne_listMouseClicked
 	
 	private ToList loadLists(String clausula) { // clausula: "Tipo='Algo' OR ... etc"
 		ToList toList = null;
@@ -471,20 +535,24 @@ public class Comida extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSiguiente;
     private javax.swing.JButton btnVolver;
+    private java.awt.List carne_list;
     private java.awt.List cereales_list;
     private javax.swing.JLabel cfaltantes_lbl;
+    private javax.swing.JLabel cseleccionadas_carne_lbl;
     private javax.swing.JLabel cseleccionadas_cereales_lbl;
     private javax.swing.JLabel cseleccionadas_frutas_lbl;
     private javax.swing.JLabel cseleccionadas_lacteos_frutas_lbl;
     private javax.swing.JPanel cseleccionadas_lacteos_lbl;
-    private javax.swing.JLabel cseleccionadas_otros_lbl;
     private javax.swing.JLabel cseleccionadas_total_lbl;
+    private javax.swing.JLabel cseleccionadas_vegetales_lbl;
     private javax.swing.JLabel ctotales_lbl;
     private java.awt.List frutas_list;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -494,7 +562,7 @@ public class Comida extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private java.awt.List lacteos_list;
-    private java.awt.List otros_list;
+    private java.awt.List vegetales_list;
     // End of variables declaration//GEN-END:variables
 
 }

@@ -302,7 +302,9 @@ public class Colaciones extends javax.swing.JFrame {
 
 
     private void btnSiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSiguienteMouseClicked
-        // TODO add your handling code here:
+        Comida comida = new Comida (this.CxD /.10);
+        comida.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnSiguienteMouseClicked
 
     private void lacteos_frutas_listMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lacteos_frutas_listMouseClicked

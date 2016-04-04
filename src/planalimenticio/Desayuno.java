@@ -99,7 +99,7 @@ public class Desayuno extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        cseleccionadas_lacteos_lbl = new javax.swing.JPanel();
+        JPanel = new javax.swing.JPanel();
         btnVolver = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -208,39 +208,39 @@ public class Desayuno extends javax.swing.JFrame {
 
         cseleccionadas_frutas_lbl.setText("value");
 
-        javax.swing.GroupLayout cseleccionadas_lacteos_lblLayout = new javax.swing.GroupLayout(cseleccionadas_lacteos_lbl);
-        cseleccionadas_lacteos_lbl.setLayout(cseleccionadas_lacteos_lblLayout);
-        cseleccionadas_lacteos_lblLayout.setHorizontalGroup(
-            cseleccionadas_lacteos_lblLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cseleccionadas_lacteos_lblLayout.createSequentialGroup()
+        javax.swing.GroupLayout JPanelLayout = new javax.swing.GroupLayout(JPanel);
+        JPanel.setLayout(JPanelLayout);
+        JPanelLayout.setHorizontalGroup(
+            JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(cseleccionadas_lacteos_lblLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(cseleccionadas_lacteos_lblLayout.createSequentialGroup()
+                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JPanelLayout.createSequentialGroup()
                         .addGap(538, 538, 538)
                         .addComponent(btnSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 13, Short.MAX_VALUE))
-                    .addGroup(cseleccionadas_lacteos_lblLayout.createSequentialGroup()
-                        .addGroup(cseleccionadas_lacteos_lblLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(cseleccionadas_lacteos_lblLayout.createSequentialGroup()
-                                .addGroup(cseleccionadas_lacteos_lblLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JPanelLayout.createSequentialGroup()
+                        .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(JPanelLayout.createSequentialGroup()
+                                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel10)
-                                    .addGroup(cseleccionadas_lacteos_lblLayout.createSequentialGroup()
-                                        .addGroup(cseleccionadas_lacteos_lblLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(cseleccionadas_lacteos_lblLayout.createSequentialGroup()
-                                                .addGroup(cseleccionadas_lacteos_lblLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(JPanelLayout.createSequentialGroup()
+                                        .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(JPanelLayout.createSequentialGroup()
+                                                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addComponent(jLabel6)
                                                     .addComponent(jLabel7))
                                                 .addGap(18, 18, 18))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cseleccionadas_lacteos_lblLayout.createSequentialGroup()
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelLayout.createSequentialGroup()
                                                 .addComponent(jLabel5)
                                                 .addGap(31, 31, 31)))
-                                        .addGroup(cseleccionadas_lacteos_lblLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(cfaltantes_lbl)
                                             .addComponent(cseleccionadas_total_lbl)
                                             .addComponent(ctotales_lbl)
-                                            .addGroup(cseleccionadas_lacteos_lblLayout.createSequentialGroup()
+                                            .addGroup(JPanelLayout.createSequentialGroup()
                                                 .addComponent(cseleccionadas_lacteos_frutas_lbl)
                                                 .addGap(83, 83, 83)
                                                 .addComponent(jLabel8)
@@ -250,7 +250,7 @@ public class Desayuno extends javax.swing.JFrame {
                                 .addComponent(jLabel12)
                                 .addGap(28, 28, 28)
                                 .addComponent(cseleccionadas_frutas_lbl))
-                            .addGroup(cseleccionadas_lacteos_lblLayout.createSequentialGroup()
+                            .addGroup(JPanelLayout.createSequentialGroup()
                                 .addGap(32, 32, 32)
                                 .addComponent(lacteos_list, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -258,17 +258,17 @@ public class Desayuno extends javax.swing.JFrame {
                                 .addGap(58, 58, 58)
                                 .addComponent(frutas_list, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(53, 53, 53)))
-                        .addGroup(cseleccionadas_lacteos_lblLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(cseleccionadas_lacteos_lblLayout.createSequentialGroup()
+                        .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(JPanelLayout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addComponent(jLabel9)
                                 .addGap(46, 46, 46)
                                 .addComponent(cseleccionadas_otros_lbl)
                                 .addContainerGap())
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cseleccionadas_lacteos_lblLayout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelLayout.createSequentialGroup()
                                 .addComponent(otros_list, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(42, 42, 42))))
-                    .addGroup(cseleccionadas_lacteos_lblLayout.createSequentialGroup()
+                    .addGroup(JPanelLayout.createSequentialGroup()
                         .addGap(83, 83, 83)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -279,28 +279,28 @@ public class Desayuno extends javax.swing.JFrame {
                         .addComponent(jLabel4)
                         .addGap(104, 104, 104))))
         );
-        cseleccionadas_lacteos_lblLayout.setVerticalGroup(
-            cseleccionadas_lacteos_lblLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cseleccionadas_lacteos_lblLayout.createSequentialGroup()
+        JPanelLayout.setVerticalGroup(
+            JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(cseleccionadas_lacteos_lblLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4)
                     .addComponent(jLabel11))
                 .addGap(18, 18, 18)
-                .addGroup(cseleccionadas_lacteos_lblLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(frutas_list, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
-                    .addGroup(cseleccionadas_lacteos_lblLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(cereales_list, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lacteos_list, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
                         .addComponent(otros_list, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(cseleccionadas_lacteos_lblLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(cseleccionadas_lacteos_lblLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel9)
                         .addComponent(cseleccionadas_otros_lbl))
-                    .addGroup(cseleccionadas_lacteos_lblLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(cseleccionadas_lacteos_frutas_lbl)
                         .addComponent(jLabel8)
                         .addComponent(cseleccionadas_cereales_lbl)
@@ -308,19 +308,19 @@ public class Desayuno extends javax.swing.JFrame {
                         .addComponent(cseleccionadas_frutas_lbl)
                         .addComponent(jLabel5)))
                 .addGap(18, 18, 18)
-                .addGroup(cseleccionadas_lacteos_lblLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(cseleccionadas_total_lbl))
                 .addGap(18, 18, 18)
-                .addGroup(cseleccionadas_lacteos_lblLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(cfaltantes_lbl))
                 .addGap(18, 18, 18)
-                .addGroup(cseleccionadas_lacteos_lblLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(ctotales_lbl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                .addGroup(cseleccionadas_lacteos_lblLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
@@ -335,7 +335,7 @@ public class Desayuno extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(cseleccionadas_lacteos_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(JPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -343,7 +343,7 @@ public class Desayuno extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cseleccionadas_lacteos_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(JPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -471,6 +471,7 @@ public class Desayuno extends javax.swing.JFrame {
 	}
 	
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel JPanel;
     private javax.swing.JButton btnSiguiente;
     private javax.swing.JButton btnVolver;
     private java.awt.List cereales_list;
@@ -478,7 +479,6 @@ public class Desayuno extends javax.swing.JFrame {
     private javax.swing.JLabel cseleccionadas_cereales_lbl;
     private javax.swing.JLabel cseleccionadas_frutas_lbl;
     private javax.swing.JLabel cseleccionadas_lacteos_frutas_lbl;
-    private javax.swing.JPanel cseleccionadas_lacteos_lbl;
     private javax.swing.JLabel cseleccionadas_otros_lbl;
     private javax.swing.JLabel cseleccionadas_total_lbl;
     private javax.swing.JLabel ctotales_lbl;
