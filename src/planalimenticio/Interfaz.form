@@ -95,36 +95,38 @@
                           <Component id="lblnivelact" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="nivel_act_cmb" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="lblaltura" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblpeso" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblcintura" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblcuello" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblcadera" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblsexo" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="peso_txt" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="altura_txt" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="cintura_txt" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="cuello_txt" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtcadera" max="32767" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="rbtnfemenino" min="-2" max="-2" attributes="0"/>
+                                          <Component id="rbtnmasculino" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="peso_txt" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="altura_txt" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="cintura_txt" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="cuello_txt" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtcadera" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="lblsexo" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="rbtnfemenino" min="-2" max="-2" attributes="0"/>
-                                  <Component id="rbtnmasculino" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="nivel_act_cmb" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
