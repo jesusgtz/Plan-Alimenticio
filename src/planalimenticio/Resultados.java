@@ -153,21 +153,20 @@ public String[] split(String some)
                 .addGap(21, 21, 21)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addGap(27, 27, 27)
-                        .addComponent(ctotal_lbl)
-                        .addGap(41, 41, 41)
-                        .addComponent(jLabel9)
-                        .addGap(34, 34, 34)
-                        .addComponent(CxD_lbl)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 149, Short.MAX_VALUE)
-                        .addComponent(jButton1)
-                        .addContainerGap())
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addGap(27, 27, 27)
+                                .addComponent(ctotal_lbl)
+                                .addGap(41, 41, 41)
+                                .addComponent(jLabel9)
+                                .addGap(34, 34, 34)
+                                .addComponent(CxD_lbl)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
+                                .addComponent(jButton1))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(cena_lbl)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -257,7 +256,9 @@ public String[] split(String some)
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        // TODO add your handling code here:
+        Interfaz interfaz = new Interfaz();
+        interfaz.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton1MouseClicked
 
     
