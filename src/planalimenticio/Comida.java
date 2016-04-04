@@ -401,7 +401,7 @@ public class Comida extends javax.swing.JFrame {
 
 
     private void btnSiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSiguienteMouseClicked
-        Colaciones colacion1 = new Colaciones(this.CxD / .35, 1, resultados);
+        Colaciones colacion1 = new Colaciones(this.CxD / .35, 1, this.resultados);
         colacion1.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnSiguienteMouseClicked
