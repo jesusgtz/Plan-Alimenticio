@@ -5,6 +5,8 @@
  */
 package planalimenticio;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author FRK
@@ -21,13 +23,26 @@ public class Resultados extends javax.swing.JFrame {
         initComponents();
         this.comidas = comidas;
         this.CxD = CxD;
-        
-        //desayuno_lbl.setText( split(comidas[0])[0]);
-        //cdesayuno_lbl.setText(split(comidas[0])[1]);
+        desayuno_lbl.setText( split(comidas[0])[0]);
+        cdesayuno_lbl.setText(split(comidas[0])[1]);
+        pcolacion_lbl.setText(split(comidas[1])[0]);
+        cpcolacion_lbl.setText(split(comidas[1])[1]);
+        comida_lbl.setText(split(comidas[2])[0]);
+        ccomida_lbl.setText(split(comidas[2])[1]);
+        scolacion_lbl.setText(split(comidas[3])[0]);
+        cscolacion_lbl.setText(split(comidas[3])[1]);
+        cena_lbl.setText(split(comidas[4])[0]);
+        ccena_lbl.setText(split(comidas[4])[1]);
+        double total = Double.parseDouble(split(comidas[0])[1]);
+        total+= Double.parseDouble(split(comidas[1])[1]);
+        total+= Double.parseDouble(split(comidas[2])[1]);
+        total+= Double.parseDouble(split(comidas[3])[1]);
+        total+= Double.parseDouble(split(comidas[4])[1]);
+        ctotal_lbl.setText(": "+total);
     }
 public String[] split(String some)
 {
-    String [] somethingelse = some.split("$");
+    String [] somethingelse = some.split(";");
     return somethingelse;
 }
     
@@ -53,7 +68,8 @@ public String[] split(String some)
         cena_lbl = new javax.swing.JLabel();
         ccena_lbl = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        ctotal_lbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -110,21 +126,27 @@ public String[] split(String some)
             }
         });
 
-        jLabel7.setText("_____________________________________________________________");
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(102, 102, 255));
+        jLabel8.setText("Cena");
+
+        ctotal_lbl.setText("jLabel7");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(196, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(188, 188, 188))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
+                        .addComponent(jLabel8)
+                        .addGap(27, 27, 27)
+                        .addComponent(ctotal_lbl)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1)
                         .addContainerGap())
@@ -157,9 +179,8 @@ public String[] split(String some)
                                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING))
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(scolacion_lbl)
-                                .addGap(347, 347, 347)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(cscolacion_lbl)))
                         .addGap(44, 44, 44))))
         );
@@ -198,14 +219,12 @@ public String[] split(String some)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cena_lbl)
                     .addComponent(ccena_lbl))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 11, Short.MAX_VALUE)
-                        .addComponent(jButton1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jLabel8)
+                    .addComponent(ctotal_lbl))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -236,6 +255,7 @@ public String[] split(String some)
     private javax.swing.JLabel comida_lbl;
     private javax.swing.JLabel cpcolacion_lbl;
     private javax.swing.JLabel cscolacion_lbl;
+    private javax.swing.JLabel ctotal_lbl;
     private javax.swing.JLabel desayuno_lbl;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -244,7 +264,7 @@ public String[] split(String some)
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel pcolacion_lbl;
     private javax.swing.JLabel scolacion_lbl;

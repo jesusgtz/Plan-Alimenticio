@@ -318,9 +318,8 @@ public class Cena extends javax.swing.JFrame {
             for(int i=0;i<desayuno.length;i++)aux += desayuno[i]+", ";
             desayuno = this.otros_list.getSelectedItems();
             for(int i=0;i<desayuno.length;i++)aux += desayuno[i]+", ";
-            aux +="$"+ cseleccionadas_totales;
+            aux +=";"+ cseleccionadas_totales;
             comidas[4] = aux;
-            JOptionPane.showMessageDialog(null,comidas[0]+"  "+ comidas[1]+"  "+comidas[2]+"  "+comidas[3]+"  "+ comidas[4],"Advertencia", 2);
             Resultados resultado = new Resultados(this.CxD / .20, comidas);
             resultado.setVisible(true);
             this.dispose();

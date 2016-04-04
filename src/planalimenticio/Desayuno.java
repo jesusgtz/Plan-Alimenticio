@@ -373,7 +373,7 @@ public class Desayuno extends javax.swing.JFrame {
             for(int i=0;i<desayuno.length;i++)aux += desayuno[i]+", ";
             desayuno = this.otros_list.getSelectedItems();
             for(int i=0;i<desayuno.length;i++)aux += desayuno[i]+", ";
-            aux +="$"+ cseleccionadas_totales;
+            aux +=";"+ cseleccionadas_totales;
             comidas[indiceResult] = aux;
             Colaciones colacion1 = new Colaciones(this.CxD / .25, 0, comidas);
             colacion1.setVisible(true);

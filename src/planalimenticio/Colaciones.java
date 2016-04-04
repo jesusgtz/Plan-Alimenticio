@@ -320,7 +320,7 @@ public class Colaciones extends javax.swing.JFrame {
             for(int i=0;i<colaciones.length;i++)aux += colaciones[i]+", ";
             colaciones = this.otros_list.getSelectedItems();
             for(int i=0;i<colaciones.length;i++)aux += colaciones[i]+", ";
-            aux +="$"+ cseleccionadas_totales;
+            aux +=";"+ cseleccionadas_totales;
             if(this.go==0)
             {
                 comidas[1] = aux; 
