@@ -16,45 +16,53 @@ import javax.swing.JLabel;
 public class Cena extends javax.swing.JFrame {
 	
     private Connect con;
+    private String[] comidas = new String [5];
     private ResultSet lacteos;
     private ResultSet cereales;
     private ResultSet fruta;
     private ResultSet otros;
-	private final double CxD;
-	private double cseleccionadas_totales;
-	
+    private final double CxD;
+    private double cseleccionadas_totales;
+    
     private int[] lacteos_frutas_selected_items;
 	private final ArrayList<String> calorias_lacteos_frutas;
 	private double cseleccionadas_lacteos_frutas;
 	
-	private int[] cereales_selected_items;
-    private final ArrayList<String> calorias_cereales;
+    private int[] cereales_selected_items;
+        private final ArrayList<String> calorias_cereales;
 	private double cseleccionadas_cereales;
 	
-	private int[] otros_selected_items;
-    private final ArrayList<String> calorias_otros;
+    private int[] otros_selected_items;
+        private final ArrayList<String> calorias_otros;
 	private double cseleccionadas_otros;
-
-    public Cena(double CxD) {
+    
+    /**
+     * Constructor
+     * @param CxD
+     * @param comidas 
+     */
+    public Cena(double CxD, String [] comidas) {
         initComponents();
-		
+	this.setLocationRelativeTo(null);
+        
+        this.comidas = comidas;
         this.CxD = Math.floor(CxD * .20);
-		this.cseleccionadas_totales = 0.0d;
-		this.cseleccionadas_lacteos_frutas = 0.0d;
-		this.cseleccionadas_cereales = 0.0d;
-		this.cseleccionadas_otros = 0.0d;
-		
-		this.ctotales_lbl.setText("" + this.CxD);
-		this.cseleccionadas_lacteos_frutas_lbl.setText("0.0");
-		this.cseleccionadas_cereales_lbl.setText("0.0");
-		this.cseleccionadas_otros_lbl.setText("0.0");
-		
-		this.cseleccionadas_total_lbl.setText("0.0");
-		this.cfaltantes_lbl.setText("0.0");
-		
-		this.lacteos_frutas_selected_items = null;
-		this.cereales_selected_items = null;
-		this.otros_selected_items = null;
+        this.cseleccionadas_totales = 0.0d;
+        this.cseleccionadas_lacteos_frutas = 0.0d;
+        this.cseleccionadas_cereales = 0.0d;
+        this.cseleccionadas_otros = 0.0d;
+
+        this.ctotales_lbl.setText("" + this.CxD);
+        this.cseleccionadas_lacteos_frutas_lbl.setText("0.0");
+        this.cseleccionadas_cereales_lbl.setText("0.0");
+        this.cseleccionadas_otros_lbl.setText("0.0");
+
+        this.cseleccionadas_total_lbl.setText("0.0");
+        this.cfaltantes_lbl.setText("0.0");
+
+        this.lacteos_frutas_selected_items = null;
+        this.cereales_selected_items = null;
+        this.otros_selected_items = null;
         
         ToList toList = loadLists("Tipo='Lacteos' OR Tipo='Frutas'");
         this.calorias_lacteos_frutas = toList.getArray();
@@ -70,7 +78,8 @@ public class Cena extends javax.swing.JFrame {
             this.cereales_list.add(li.getItem(i));
         }
         
-        toList = loadLists("Tipo='Carne Roja' OR Tipo='Pescados y Mariscos' OR Tipo='Carne Blanca'");
+        toList = loadLists("Tipo='Carne Roja' OR Tipo='Pescados y Mariscos' "
+                + "OR Tipo='Carne Blanca'");
         this.calorias_otros = toList.getArray();
         li = toList.getList();
         for(int i=0, n = toList.getSize(); i<n; i++) {
@@ -302,7 +311,26 @@ public class Cena extends javax.swing.JFrame {
 
 
     private void btnVolver1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolver1MouseClicked
-        // TODO add your handling code here:
+        int[] lacteos =  this.lacteos_frutas_list.getSelectedIndexes();
+        int[] cereales = this.cereales_list.getSelectedIndexes();
+        int[] otros = this.otros_list.getSelectedIndexes();
+        if(lacteos.length==0 && cereales.length==0 && otros.length==0 ) {
+            JOptionPane.showMessageDialog(null, 
+                    "Debe seleccionar al menos un alimento", "Advertencia", 2);
+        } else {
+            String aux ="";
+            String [] desayuno = this.lacteos_frutas_list.getSelectedItems();
+            for(int i=0;i<desayuno.length;i++)aux += desayuno[i]+", ";
+            desayuno = this.cereales_list.getSelectedItems();
+            for(int i=0;i<desayuno.length;i++)aux += desayuno[i]+", ";
+            desayuno = this.otros_list.getSelectedItems();
+            for(int i=0;i<desayuno.length;i++)aux += desayuno[i]+", ";
+            aux +=";"+ cseleccionadas_totales;
+            comidas[4] = aux;
+            Resultados resultado = new Resultados(this.CxD / .20, comidas);
+            resultado.setVisible(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_btnVolver1MouseClicked
 
     private void lacteos_frutas_listMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lacteos_frutas_listMouseClicked
@@ -312,13 +340,17 @@ public class Cena extends javax.swing.JFrame {
                     + "2 raciones de este tipo de alimento", "Advertencia", 2);
             this.lacteos_frutas_list.deselect(indices[2]);
         }
-		this.lacteos_frutas_selected_items = indices;
-		this.cseleccionadas_lacteos_frutas = getCaloriasSeleccionadas(indices, this.calorias_lacteos_frutas);
-		this.cseleccionadas_lacteos_frutas_lbl.setText("" + this.cseleccionadas_lacteos_frutas);
-		
-		this.cseleccionadas_totales = (this.cseleccionadas_lacteos_frutas + this.cseleccionadas_cereales + this.cseleccionadas_otros);
-		this.setCaloriasFaltantes(this.cfaltantes_lbl, this.cseleccionadas_totales, this.CxD);
-		this.cseleccionadas_total_lbl.setText("" + this.cseleccionadas_totales);
+        this.lacteos_frutas_selected_items = indices;
+        this.cseleccionadas_lacteos_frutas = getCaloriasSeleccionadas(indices, 
+                this.calorias_lacteos_frutas);
+        this.cseleccionadas_lacteos_frutas_lbl.setText("" + 
+                this.cseleccionadas_lacteos_frutas);
+
+        this.cseleccionadas_totales = (this.cseleccionadas_lacteos_frutas + 
+                this.cseleccionadas_cereales + this.cseleccionadas_otros);
+        this.setCaloriasFaltantes(this.cfaltantes_lbl, 
+                this.cseleccionadas_totales, this.CxD);
+        this.cseleccionadas_total_lbl.setText("" + this.cseleccionadas_totales);
     }//GEN-LAST:event_lacteos_frutas_listMouseClicked
 
     private void cereales_listMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cereales_listMouseClicked
@@ -328,14 +360,19 @@ public class Cena extends javax.swing.JFrame {
                     + "2 raciones de este tipo de alimento", "Advertencia", 2);
             this.cereales_list.deselect(indices[2]);
         }
-		
-		this.cereales_selected_items = indices;
-		this.cseleccionadas_cereales = getCaloriasSeleccionadas(indices, this.calorias_cereales);
-		this.cseleccionadas_cereales_lbl.setText("" + this.cseleccionadas_cereales);
-		
-		this.cseleccionadas_totales = (this.cseleccionadas_lacteos_frutas + this.cseleccionadas_cereales + this.cseleccionadas_otros);
-		this.setCaloriasFaltantes(this.cfaltantes_lbl, this.cseleccionadas_totales, this.CxD);
-		this.cseleccionadas_total_lbl.setText("" + (this.cseleccionadas_lacteos_frutas + this.cseleccionadas_cereales + this.cseleccionadas_otros));
+        this.cereales_selected_items = indices;
+        this.cseleccionadas_cereales = getCaloriasSeleccionadas(indices, 
+                this.calorias_cereales);
+        this.cseleccionadas_cereales_lbl.setText("" + 
+                this.cseleccionadas_cereales);
+
+        this.cseleccionadas_totales = (this.cseleccionadas_lacteos_frutas + 
+                this.cseleccionadas_cereales + this.cseleccionadas_otros);
+        this.setCaloriasFaltantes(this.cfaltantes_lbl, 
+                this.cseleccionadas_totales, this.CxD);
+        this.cseleccionadas_total_lbl.setText("" + 
+                (this.cseleccionadas_lacteos_frutas + 
+                 this.cseleccionadas_cereales + this.cseleccionadas_otros));
     }//GEN-LAST:event_cereales_listMouseClicked
 
     private void otros_listMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_otros_listMouseClicked
@@ -345,56 +382,69 @@ public class Cena extends javax.swing.JFrame {
                     + "2 raciones de este tipo de alimento", "Advertencia", 2);
             this.otros_list.deselect(indices[2]);
         }
-		
-		this.otros_selected_items = indices;
-		this.cseleccionadas_otros = getCaloriasSeleccionadas(indices, this.calorias_otros);
-		this.cseleccionadas_otros_lbl.setText("" + this.cseleccionadas_otros);
-		
-		this.cseleccionadas_totales = (this.cseleccionadas_lacteos_frutas + this.cseleccionadas_cereales + this.cseleccionadas_otros);
-		this.setCaloriasFaltantes(this.cfaltantes_lbl, this.cseleccionadas_totales, this.CxD);
-		this.cseleccionadas_total_lbl.setText("" + (this.cseleccionadas_lacteos_frutas + this.cseleccionadas_cereales + this.cseleccionadas_otros));
+        this.otros_selected_items = indices;
+        this.cseleccionadas_otros = getCaloriasSeleccionadas(indices, 
+                this.calorias_otros);
+        this.cseleccionadas_otros_lbl.setText("" + this.cseleccionadas_otros);
+
+        this.cseleccionadas_totales = (this.cseleccionadas_lacteos_frutas + 
+                this.cseleccionadas_cereales + this.cseleccionadas_otros);
+        this.setCaloriasFaltantes(this.cfaltantes_lbl, 
+                this.cseleccionadas_totales, this.CxD);
+        this.cseleccionadas_total_lbl.setText("" + 
+                (this.cseleccionadas_lacteos_frutas + 
+                 this.cseleccionadas_cereales + this.cseleccionadas_otros));
     }//GEN-LAST:event_otros_listMouseClicked
 	
-	private ToList loadLists(String clausula) { // clausula: "Tipo='Algo' OR ... etc"
-		ToList toList = null;
-		try {
-			Connect conn = new Connect();
-			
-			ResultSet rst = conn.Select("SELECT * FROM Alimentos WHERE " + clausula + ";");
-			
-			if(rst != null) {
-				ArrayList<String> calorias = new ArrayList();
-				List list = new List(7, true);
-				int size = 0;
+    /**
+     * Funcion para cargar listas
+     * clausula: "Tipo='Algo' OR ... etc"
+     * @param clausula
+     * @return 
+     */
+    private ToList loadLists(String clausula) { 
+        ToList toList = null;
+        try {
+            Connect conn = new Connect();
 
-				while(rst.next()) {
-					calorias.add(rst.getString("Calorias"));
-					list.add(rst.getString("Nombre"));
-					size++;
-				}
-				
-				toList = new ToList(list, calorias, size);
-			} else System.out.println("Error: no se pudo cargar la lista");
-			
-		} catch (SQLException er) {
-			System.out.println("Error: " + er.getMessage());
-		}
-		
-		return toList;
-	}
+            ResultSet rst = conn.Select("SELECT * FROM Alimentos WHERE "
+                    + clausula + ";");
+
+            if(rst != null) {
+                ArrayList<String> calorias = new ArrayList();
+                List list = new List(7, true);
+                int size = 0;
+
+                while(rst.next()) {
+                    calorias.add(rst.getString("Calorias"));
+                    list.add(rst.getString("Nombre"));
+                    size++;
+                }
+
+                toList = new ToList(list, calorias, size);
+            } else System.out.println("Error: no se pudo cargar la lista");
+
+        } catch (SQLException er) {
+            System.out.println("Error: " + er.getMessage());
+        }
+        
+        return toList;
+    }
 	
-	private double getCaloriasSeleccionadas(int[] indices, ArrayList list) {
-		double suma = 0.0d;
-		if(indices.length > 0) suma = Double.parseDouble("" + list.get(indices[0]));
-		if(indices.length > 1) suma += Double.parseDouble("" + list.get(indices[1]));
-		return suma;
-	}
+    private double getCaloriasSeleccionadas(int[] indices, ArrayList list) {
+        double suma = 0.0d;
+        if(indices.length > 0) suma = Double.parseDouble("" + 
+                list.get(indices[0]));
+        if(indices.length > 1) suma += Double.parseDouble("" + 
+                list.get(indices[1]));
+        return suma;
+    }
 	
-	private void setCaloriasFaltantes(JLabel lbl, double actual, double total) {
-		lbl.setText("" + (total - actual));
-		if(total - actual < 0) lbl.setForeground(Color.red);
-		else lbl.setForeground(Color.black);
-	}
+    private void setCaloriasFaltantes(JLabel lbl, double actual, double total) {
+        lbl.setText("" + (total - actual));
+        if(total - actual < 0) lbl.setForeground(Color.red);
+        else lbl.setForeground(Color.black);
+    }
 	
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnVolver;
@@ -420,6 +470,4 @@ public class Cena extends javax.swing.JFrame {
     private java.awt.List lacteos_frutas_list;
     private java.awt.List otros_list;
     // End of variables declaration//GEN-END:variables
-
 }
-

@@ -12,25 +12,28 @@ import java.sql.SQLException;
  */
 class Interfaz extends javax.swing.JFrame {
 	
-	private double 
-			IMC,
-			PGC,
-			MCM,
-			TMB,
-			CxD,
-			PxD;
+    private double IMC;
+    private double PGC;
+    private double MCM;
+    private double TMB;
+    private double CxD;
+    private double PxD;
 
+    /**
+     * Constructor
+     */
     Interfaz() {
         initComponents();
+        this.setLocationRelativeTo(null);
         pnlresultados.hide();
         btnSiguiente.setVisible(false);
         rbtnmasculino.setSelected(true);
         txtcadera.enable(false);
 		
-		this.altura_txt.setText("170");
-		this.peso_txt.setText("65");
-		this.cintura_txt.setText("80");
-		this.cuello_txt.setText("40");
+        this.altura_txt.setText("170");
+        this.peso_txt.setText("65");
+        this.cintura_txt.setText("80");
+        this.cuello_txt.setText("40");
     }
 	
     /**
@@ -336,57 +339,64 @@ class Interfaz extends javax.swing.JFrame {
         if(typedNumber(evt)) evt.consume();
     }//GEN-LAST:event_altura_txtKeyTyped
 
-    private void peso_txtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_peso_txtKeyTyped
+    private void peso_txtKeyTyped(java.awt.event.KeyEvent evt) {                                  
         if(typedNumber(evt)) evt.consume();
-    }//GEN-LAST:event_peso_txtKeyTyped
+    }                                 
 
-    private void cintura_txtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cintura_txtKeyTyped
+    private void cintura_txtKeyTyped(java.awt.event.KeyEvent evt) {                                     
         if(typedNumber(evt)) evt.consume();
-    }//GEN-LAST:event_cintura_txtKeyTyped
+    }                                    
 
-    private void cuello_txtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cuello_txtKeyTyped
+    private void cuello_txtKeyTyped(java.awt.event.KeyEvent evt) {                                    
         if(typedNumber(evt)) evt.consume();
-    }//GEN-LAST:event_cuello_txtKeyTyped
+    }                                   
 
     private void btncalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncalcularActionPerformed
 		
         double altura,peso,cintura,cuello,cadera = 0,nivelact=0;
+        String sexo="", snivelact="";
 
-        String sexo="",snivelact="";
-
-        if(altura_txt.getText().isEmpty()) JOptionPane.showMessageDialog(null, "Campo altura vacio");
+        if(altura_txt.getText().isEmpty()) 
+            JOptionPane.showMessageDialog(null, "Campo altura vacio");
         else {  
             altura = Double.parseDouble(altura_txt.getText());
-            if(peso_txt.getText().isEmpty()) JOptionPane.showMessageDialog(null, "Campo peso vacio");
+            if(peso_txt.getText().isEmpty()) 
+                JOptionPane.showMessageDialog(null, "Campo peso vacio");
             else {
                 peso = Double.parseDouble(peso_txt.getText());
-                if(cintura_txt.getText().isEmpty()) JOptionPane.showMessageDialog(null, "Campo cintura vacio");
+                if(cintura_txt.getText().isEmpty()) 
+                    JOptionPane.showMessageDialog(null, "Campo cintura vacio");
                 else {
                     cintura = Double.parseDouble(cintura_txt.getText());
-                    if(cuello_txt.getText().isEmpty()) JOptionPane.showMessageDialog(null, "Campo cuello vacio");
+                    if(cuello_txt.getText().isEmpty()) 
+                        JOptionPane.showMessageDialog(null, 
+                                "Campo cuello vacio");
                     else {
                         cuello = Double.parseDouble(cuello_txt.getText());
-                        if(rbtnmasculino.isSelected()) sexo = "Masculino";
+                        if(rbtnmasculino.isSelected()) 
+                            sexo = "Masculino";
                         else {
                             sexo = "Femenino";
-                            if(txtcadera.getText().isEmpty()) JOptionPane.showMessageDialog(null, "Campo cadera vacio");
+                            if(txtcadera.getText().isEmpty()) 
+                                JOptionPane.showMessageDialog(null, 
+                                        "Campo cadera vacio");
                             else  cadera = Double.parseDouble(txtcadera.getText());
                         }
                         snivelact = (String)nivel_act_cmb.getSelectedItem();
                         switch(snivelact) {
                             case "Sedentario":
-								nivelact=1.2;
-								break;
+                                nivelact=1.2;
+                                break;
                             case "Ligero":
-								nivelact=1.375;
-								break;
+                                nivelact=1.375;
+                                break;
                             case "Moderado":
-								nivelact=1.55;
-								break;
+                                nivelact=1.55;
+                                break;
                             case "Intensa":
-								nivelact=1.725;
-								break;
-						}
+                                nivelact=1.725;
+                                break;
+                        }
 						
                         IMC = Math.rint(Operaciones.IMC(peso,altura) * 100) / 100;
                         PGC = Operaciones.PGC(cintura, cuello, altura, cadera, sexo);
@@ -395,10 +405,11 @@ class Interfaz extends javax.swing.JFrame {
                         CxD = Math.round(Operaciones.CxD(TMB, nivelact));
                         PxD = Math.rint(Operaciones.PxD(peso) * 100) / 100;
                         
-						System.out.println("Sexo: "+ sexo);
-                        System.out.println("Nivel de act.: "+ nivelact + "  ("+ snivelact +")");
-						System.out.println("PGC: "+ PGC);
-						System.out.println("IMC: "+ IMC);
+                        System.out.println("Sexo: "+ sexo);
+                        System.out.println("Nivel de act.: "+ nivelact + "  ("+ 
+                                snivelact +")");
+                        System.out.println("PGC: "+ PGC);
+                        System.out.println("IMC: "+ IMC);
 						
                         lblIMC.setText(String.valueOf(IMC));
                         lblproteinas.setText(String.valueOf(PxD));
@@ -409,10 +420,6 @@ class Interfaz extends javax.swing.JFrame {
                 }
             }
         }
-       
-        
-        
-
     }//GEN-LAST:event_btncalcularActionPerformed
 
     private void txtcaderaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtcaderaMouseClicked
@@ -447,27 +454,32 @@ class Interfaz extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+            for (javax.swing.UIManager.LookAndFeelInfo info : 
+                    javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Interfaz.class.getName())
+                    .log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Interfaz.class.getName())
+                    .log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Interfaz.class.getName())
+                    .log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Interfaz.class.getName())
+                    .log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-			new Interfaz().setVisible(true);
-		});
+            new Interfaz().setVisible(true);
+        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -500,7 +512,6 @@ class Interfaz extends javax.swing.JFrame {
     private javax.swing.JRadioButton rbtnmasculino;
     private javax.swing.JTextField txtcadera;
     // End of variables declaration//GEN-END:variables
-
 	
 	private boolean typedNumber(java.awt.event.KeyEvent evt) {
 		return evt.getKeyChar()<'0' || evt.getKeyChar()>'9';

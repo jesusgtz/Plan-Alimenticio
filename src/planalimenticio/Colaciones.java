@@ -18,29 +18,35 @@ public class Colaciones extends javax.swing.JFrame {
     private Connect con;
     private int go;
     private String[] comidas = new String [5];
-    private int indiceResult = 0;
     private ResultSet lacteos;
     private ResultSet cereales;
     private ResultSet fruta;
     private ResultSet otros;
-	private final double CxD;
-	private double cseleccionadas_totales;
+    private final double CxD;
+    private double cseleccionadas_totales;
 	
     private int[] lacteos_frutas_selected_items;
 	private final ArrayList<String> calorias_lacteos_frutas;
 	private double cseleccionadas_lacteos_frutas;
 	
-	private int[] cereales_selected_items;
-    private final ArrayList<String> calorias_cereales;
+    private int[] cereales_selected_items;
+        private final ArrayList<String> calorias_cereales;
 	private double cseleccionadas_cereales;
 	
-	private int[] otros_selected_items;
-    private final ArrayList<String> calorias_otros;
+    private int[] otros_selected_items;
+        private final ArrayList<String> calorias_otros;
 	private double cseleccionadas_otros;
-
+        
+    /**
+     * Constructor
+     * @param CxD
+     * @param go
+     * @param comidas 
+     */
     public Colaciones(double CxD,int go, String [] comidas) {
         initComponents();
-		
+	this.setLocationRelativeTo(null);
+        
         this.CxD = Math.floor(CxD * .10);
         this.go = go;
         this.comidas = comidas;
@@ -307,15 +313,32 @@ public class Colaciones extends javax.swing.JFrame {
 
 
     private void btnSiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSiguienteMouseClicked
-        if(this.go==0)
-        {
-            Comida comida = new Comida (this.CxD /.10);
-            comida.setVisible(true);
-        }else{
-            Cena cena = new Cena(this.CxD /.10);
-            cena.setVisible(true);
+        int[] lacteos =  this.lacteos_frutas_list.getSelectedIndexes();
+        int[] cereales = this.cereales_list.getSelectedIndexes();
+        int[] frutas = this.otros_list.getSelectedIndexes();
+        if(lacteos.length==0 && cereales.length==0 && frutas.length==0 ) {
+            JOptionPane.showMessageDialog(null, "Debe seleccionar al menos un "
+                    + "alimento", "Advertencia", 2);
+        } else {
+            String aux ="";
+            String [] colaciones = this.lacteos_frutas_list.getSelectedItems();
+            for(int i=0;i<colaciones.length;i++)aux += colaciones[i]+", ";
+            colaciones = this.cereales_list.getSelectedItems();
+            for(int i=0;i<colaciones.length;i++)aux += colaciones[i]+", ";
+            colaciones = this.otros_list.getSelectedItems();
+            for(int i=0;i<colaciones.length;i++)aux += colaciones[i]+", ";
+            aux +=";"+ cseleccionadas_totales;
+            if(this.go==0) {
+                comidas[1] = aux; 
+                Comida comida = new Comida (this.CxD /.10, comidas);
+                comida.setVisible(true);
+            } else {
+                comidas[3] = aux;
+                Cena cena = new Cena(this.CxD /.10, comidas);
+                cena.setVisible(true);  
+            }
+            this.dispose();
         }
-        this.dispose();
         
     }//GEN-LAST:event_btnSiguienteMouseClicked
 
@@ -366,6 +389,7 @@ public class Colaciones extends javax.swing.JFrame {
 
     private void otros_listMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_otros_listMouseClicked
         int []indices = this.otros_list.getSelectedIndexes();
+
 		if(this.cseleccionadas_totales <= this.CxD) {
 			if(indices.length > 2) {
 				JOptionPane.showMessageDialog(null, "No se debe seleccionar más de "
@@ -428,7 +452,7 @@ public class Colaciones extends javax.swing.JFrame {
 		if(total - actual < 0) lbl.setForeground(Color.red);
 		else lbl.setForeground(Color.black);
 	}
-	
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSiguiente;
     private javax.swing.JButton btnVolver;
@@ -453,6 +477,4 @@ public class Colaciones extends javax.swing.JFrame {
     private java.awt.List lacteos_frutas_list;
     private java.awt.List otros_list;
     // End of variables declaration//GEN-END:variables
-
 }
-

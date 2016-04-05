@@ -10,19 +10,19 @@ import javax.swing.JOptionPane;
 public class Connect {
 	
     private final String host;
-	private final String dbname;
-	private final String username;
+    private final String dbname;
+    private final String username;
     private final String password;
     private Connection conn;
-	private Statement stm;
+    private Statement stm;
 
-	public Connect() {
-		this.host = "jdbc:mysql://localhost:3306/";
-		this.dbname = "DBPA";
-		this.username = "root";
-		this.password = "";
-		this.conn = null;
-		
+    public Connect() {
+        this.host = "jdbc:mysql://localhost:3306/";
+        this.dbname = "DBPA";
+        this.username = "root";
+        this.password = "";
+        this.conn = null;
+
         try {
             Class.forName("com.mysql.jdbc.Driver");
             this.conn = DriverManager.getConnection(this.host + this.dbname, this.username, this.password);
@@ -64,5 +64,4 @@ public class Connect {
 		}
 		return false;
 	}
-			
 }
