@@ -79,7 +79,7 @@
                                       <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="0" pref="696" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="856" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Component id="scolacion_lbl" min="-2" max="-2" attributes="0"/>
