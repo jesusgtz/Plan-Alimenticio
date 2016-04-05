@@ -335,10 +335,15 @@ public class Cena extends javax.swing.JFrame {
 
     private void lacteos_frutas_listMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lacteos_frutas_listMouseClicked
         int[] indices = this.lacteos_frutas_list.getSelectedIndexes();
-        if(indices.length > 2) {
-            JOptionPane.showMessageDialog(null, "No se debe seleccionar más de "
-                    + "2 raciones de este tipo de alimento", "Advertencia", 2);
-            this.lacteos_frutas_list.deselect(indices[2]);
+        if(this.cseleccionadas_totales <= this.CxD) {
+            if(indices.length > 2) {
+                JOptionPane.showMessageDialog(null, "No se debe seleccionar más de "
+                        + "2 raciones de este tipo de alimento", "Advertencia", 2);
+                this.lacteos_frutas_list.deselect(indices[2]);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Has sobrepasado las calorias recomendadas.", "Plan Alimenticio", JOptionPane.WARNING_MESSAGE);
+            this.cereales_list.deselect(indices[indices.length - 1]);
         }
         this.lacteos_frutas_selected_items = indices;
         this.cseleccionadas_lacteos_frutas = getCaloriasSeleccionadas(indices, 
@@ -355,10 +360,15 @@ public class Cena extends javax.swing.JFrame {
 
     private void cereales_listMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cereales_listMouseClicked
         int []indices = this.cereales_list.getSelectedIndexes();
-        if(indices.length > 3) {
-            JOptionPane.showMessageDialog(null, "No se debe seleccionar más de "
-                    + "2 raciones de este tipo de alimento", "Advertencia", 2);
-            this.cereales_list.deselect(indices[2]);
+        if(this.cseleccionadas_totales <= this.CxD) {
+            if(indices.length > 2) {
+                JOptionPane.showMessageDialog(null, "No se debe seleccionar más de "
+                        + "2 raciones de este tipo de alimento", "Advertencia", 2);
+                this.cereales_list.deselect(indices[2]);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Has sobrepasado las calorias recomendadas.", "Plan Alimenticio", JOptionPane.WARNING_MESSAGE);
+            this.cereales_list.deselect(indices[indices.length - 1]);
         }
         this.cereales_selected_items = indices;
         this.cseleccionadas_cereales = getCaloriasSeleccionadas(indices, 
@@ -377,10 +387,15 @@ public class Cena extends javax.swing.JFrame {
 
     private void otros_listMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_otros_listMouseClicked
         int []indices = this.otros_list.getSelectedIndexes();
-        if(indices.length > 2) {
-            JOptionPane.showMessageDialog(null, "No se debe seleccionar más de "
-                    + "2 raciones de este tipo de alimento", "Advertencia", 2);
-            this.otros_list.deselect(indices[2]);
+        if(this.cseleccionadas_totales <= this.CxD) {
+            if(indices.length > 2) {
+                JOptionPane.showMessageDialog(null, "No se debe seleccionar más de "
+                        + "2 raciones de este tipo de alimento", "Advertencia", 2);
+                this.otros_list.deselect(indices[2]);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Has sobrepasado las calorias recomendadas.", "Plan Alimenticio", JOptionPane.WARNING_MESSAGE);
+            this.cereales_list.deselect(indices[indices.length - 1]);
         }
         this.otros_selected_items = indices;
         this.cseleccionadas_otros = getCaloriasSeleccionadas(indices, 
