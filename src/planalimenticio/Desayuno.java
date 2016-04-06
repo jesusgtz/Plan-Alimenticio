@@ -6,7 +6,6 @@ import javax.swing.JOptionPane;
 import java.awt.List;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import static java.time.Clock.system;
 import java.util.ArrayList;
 import javax.swing.JLabel;
 
@@ -18,6 +17,7 @@ public class Desayuno extends javax.swing.JFrame {
 	
     private String[] comidas = new String [5];
     private int indiceResult = 0;
+    int potatoe = 0;
     private Connect con;
     private ResultSet lacteos;
     private ResultSet cereales;
@@ -54,7 +54,7 @@ public class Desayuno extends javax.swing.JFrame {
         this.cseleccionadas_otros = 0.0d;
 
         this.ctotales_lbl.setText("" + this.CxD);
-        this.cseleccionadas_lacteos_frutas_lbl.setText("0.0");
+        this.cseleccionadas_lacteos_lbl.setText("0.0");
         this.cseleccionadas_cereales_lbl.setText("0.0");
         this.cseleccionadas_frutas_lbl.setText("0.0");
         this.cseleccionadas_otros_lbl.setText("0.0");
@@ -62,10 +62,10 @@ public class Desayuno extends javax.swing.JFrame {
         this.cseleccionadas_total_lbl.setText("0.0");
         this.cfaltantes_lbl.setText("0.0");
 
-        this.lacteos_selected_items = null;
-        this.cereales_selected_items = null;
-        this.frutas_selected_items = null;
-        this.otros_selected_items = null;
+        this.lacteos_selected_items = new int [0];
+        this.cereales_selected_items = new int [0];
+        this.frutas_selected_items = new int [0];
+        this.otros_selected_items = new int [0];
         
         ToList toList = loadLists("Tipo='Lacteos'");
         this.calorias_lacteos = toList.getArray();
@@ -115,7 +115,7 @@ public class Desayuno extends javax.swing.JFrame {
         lacteos_list = new java.awt.List();
         cereales_list = new java.awt.List();
         otros_list = new java.awt.List();
-        cseleccionadas_lacteos_frutas_lbl = new javax.swing.JLabel();
+        cseleccionadas_lacteos_lbl = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         cseleccionadas_cereales_lbl = new javax.swing.JLabel();
@@ -184,7 +184,7 @@ public class Desayuno extends javax.swing.JFrame {
             }
         });
 
-        cseleccionadas_lacteos_frutas_lbl.setText("value");
+        cseleccionadas_lacteos_lbl.setText("value");
 
         jLabel5.setText("Calorias:");
 
@@ -225,45 +225,47 @@ public class Desayuno extends javax.swing.JFrame {
                     .addGroup(JPanelLayout.createSequentialGroup()
                         .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(JPanelLayout.createSequentialGroup()
-                                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel10)
-                                    .addGroup(JPanelLayout.createSequentialGroup()
-                                        .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(JPanelLayout.createSequentialGroup()
-                                                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabel6)
-                                                    .addComponent(jLabel7))
-                                                .addGap(18, 18, 18))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelLayout.createSequentialGroup()
-                                                .addComponent(jLabel5)
-                                                .addGap(31, 31, 31)))
-                                        .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(cfaltantes_lbl)
-                                            .addComponent(cseleccionadas_total_lbl)
-                                            .addComponent(ctotales_lbl)
-                                            .addGroup(JPanelLayout.createSequentialGroup()
-                                                .addComponent(cseleccionadas_lacteos_frutas_lbl)
-                                                .addGap(83, 83, 83)
-                                                .addComponent(jLabel8)
-                                                .addGap(35, 35, 35)
-                                                .addComponent(cseleccionadas_cereales_lbl)))))
-                                .addGap(95, 95, 95)
-                                .addComponent(jLabel12)
-                                .addGap(28, 28, 28)
-                                .addComponent(cseleccionadas_frutas_lbl))
-                            .addGroup(JPanelLayout.createSequentialGroup()
                                 .addGap(32, 32, 32)
                                 .addComponent(lacteos_list, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(cereales_list, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(58, 58, 58)
-                                .addComponent(frutas_list, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(53, 53, 53)))
+                                .addGap(58, 58, 58))
+                            .addGroup(JPanelLayout.createSequentialGroup()
+                                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel10)
+                                    .addGroup(JPanelLayout.createSequentialGroup()
+                                        .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel6)
+                                            .addComponent(jLabel7)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelLayout.createSequentialGroup()
+                                                .addComponent(jLabel5)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(cseleccionadas_lacteos_lbl)))
+                                        .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(JPanelLayout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(cfaltantes_lbl)
+                                                    .addComponent(cseleccionadas_total_lbl)
+                                                    .addComponent(ctotales_lbl)))
+                                            .addGroup(JPanelLayout.createSequentialGroup()
+                                                .addGap(65, 65, 65)
+                                                .addComponent(jLabel8)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(cseleccionadas_cereales_lbl)))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(frutas_list, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(JPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel12)
+                                .addGap(18, 18, 18)
+                                .addComponent(cseleccionadas_frutas_lbl)))
+                        .addGap(53, 53, 53)
                         .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(JPanelLayout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addComponent(jLabel9)
-                                .addGap(46, 46, 46)
+                                .addGap(18, 18, 18)
                                 .addComponent(cseleccionadas_otros_lbl)
                                 .addContainerGap())
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelLayout.createSequentialGroup()
@@ -297,15 +299,18 @@ public class Desayuno extends javax.swing.JFrame {
                     .addComponent(otros_list, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9)
-                    .addComponent(cseleccionadas_otros_lbl)
-                    .addComponent(cseleccionadas_lacteos_frutas_lbl)
-                    .addComponent(jLabel8)
-                    .addComponent(cseleccionadas_cereales_lbl)
                     .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel12)
-                        .addComponent(cseleccionadas_frutas_lbl)
-                        .addComponent(jLabel5)))
+                        .addComponent(jLabel9)
+                        .addComponent(cseleccionadas_otros_lbl))
+                    .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel5)
+                        .addComponent(cseleccionadas_lacteos_lbl)
+                        .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel8)
+                            .addComponent(cseleccionadas_cereales_lbl)
+                            .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel12)
+                                .addComponent(cseleccionadas_frutas_lbl)))))
                 .addGap(18, 18, 18)
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -359,19 +364,28 @@ public class Desayuno extends javax.swing.JFrame {
         int[] lacteos =  this.lacteos_list.getSelectedIndexes();
         int[] cereales = this.cereales_list.getSelectedIndexes();
         int[] frutas = this.frutas_list.getSelectedIndexes();
-        if(lacteos.length==0 && cereales.length==0 && frutas.length==0 ) {
+        int[] otros = this.otros_list.getSelectedIndexes();
+        if(lacteos.length==0 && cereales.length==0 && frutas.length==0 || otros.length==0) {
             JOptionPane.showMessageDialog(null, "Debe seleccionar al menos un "
                     + "alimento", "Advertencia", 2);
         } else {
             String aux ="";
             String [] desayuno = this.lacteos_list.getSelectedItems();
-            for(int i=0;i<desayuno.length;i++)aux += desayuno[i]+", ";
+			for (String desayuno1 : desayuno) {
+				aux += desayuno1 + ", ";
+			}
             desayuno = this.cereales_list.getSelectedItems();
-            for(int i=0;i<desayuno.length;i++)aux += desayuno[i]+", ";
+			for (String desayuno1 : desayuno) {
+				aux += desayuno1 + ", ";
+			}
             desayuno = this.frutas_list.getSelectedItems();
-            for(int i=0;i<desayuno.length;i++)aux += desayuno[i]+", ";
+			for (String desayuno1 : desayuno) {
+				aux += desayuno1 + ", ";
+			}
             desayuno = this.otros_list.getSelectedItems();
-            for(int i=0;i<desayuno.length;i++)aux += desayuno[i]+", ";
+			for (String desayuno1 : desayuno) {
+				aux += desayuno1 + ", ";
+			}
             aux +=";"+ cseleccionadas_totales;
             comidas[indiceResult] = aux;
             Colaciones colacion1 = new Colaciones(this.CxD / .25, 0, comidas);
@@ -382,23 +396,31 @@ public class Desayuno extends javax.swing.JFrame {
 
     private void lacteos_listMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lacteos_listMouseClicked
         int[] indices = this.lacteos_list.getSelectedIndexes();
-        if(this.cseleccionadas_totales <= this.CxD) {
-            if(indices.length > 2) {
-                JOptionPane.showMessageDialog(null, "No se debe seleccionar más de "
-                        + "2 raciones de este tipo de alimento", "Advertencia", 2);
-                this.lacteos_list.deselect(indices[2]);
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Has sobrepasado las calorias recomendadas.", "Plan Alimenticio", JOptionPane.WARNING_MESSAGE);
-            this.cereales_list.deselect(indices[indices.length - 1]);
-        }
-        
+		System.out.println("\n\nLista: LACTEOS");
+		System.out.println("\tIndices temp: " + indices.length);
+		System.out.println("\tIndices Lact: " + this.lacteos_selected_items.length);
+        if(this.lacteos_selected_items.length  > indices.length) {
+			System.out.println("\t\tEliminado");
+		} else {
+			System.out.println("\t\tAgregado");
+			if(this.cseleccionadas_totales <= this.CxD) {
+				if(indices.length > 2) {
+					JOptionPane.showMessageDialog(null, "No se debe seleccionar más de "
+							+ "2 raciones de este tipo de alimento", "Advertencia", 2);
+					this.lacteos_list.deselect(indices[2]);
+				}
+			} else {
+				JOptionPane.showMessageDialog(null, "Has sobrepasado las calorias recomendadas.", "Plan Alimenticio", JOptionPane.WARNING_MESSAGE);
+				this.lacteos_list.deselect(indices[indices.length - 1]);
+			}
+		}
+		
+        indices = this.lacteos_list.getSelectedIndexes();
         this.lacteos_selected_items = indices;
         this.cseleccionadas_lacteos = getCaloriasSeleccionadas(indices, 
                 this.calorias_lacteos);
-        this.cseleccionadas_lacteos_frutas_lbl.setText("" + 
+        this.cseleccionadas_lacteos_lbl.setText("" + 
                 this.cseleccionadas_lacteos);
-
         this.cseleccionadas_totales = (this.cseleccionadas_lacteos + 
                 this.cseleccionadas_cereales + this.cseleccionadas_frutas + 
                 this.cseleccionadas_otros);
@@ -409,22 +431,29 @@ public class Desayuno extends javax.swing.JFrame {
 
     private void cereales_listMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cereales_listMouseClicked
         int []indices = this.cereales_list.getSelectedIndexes();
-        if(this.cseleccionadas_totales <= this.CxD){
-            if(indices.length > 2) {
-                JOptionPane.showMessageDialog(null, "No se debe seleccionar más de "
-                        + "2 raciones de este tipo de alimento", "Advertencia", 2);
-                this.cereales_list.deselect(indices[2]);
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Has sobrepasado las calorias recomendadas.", "Plan Alimenticio", JOptionPane.WARNING_MESSAGE);
-            this.cereales_list.deselect(indices[indices.length - 1]);
-        }	
+		System.out.println("\n\nLista: CEREALES");
+		System.out.println("\tIndices temp: " + indices.length);
+		System.out.println("\tIndices Lact: " + this.cereales_selected_items.length);
+        if(this.cereales_selected_items.length  > indices.length) {
+			System.out.println("\t\tEliminado.");
+		}else {
+			System.out.println("\t\tAgregado.");
+			if(this.cseleccionadas_totales <= this.CxD){
+				if(indices.length > 2) {
+					JOptionPane.showMessageDialog(null, "No se debe seleccionar más de "
+							+ "2 raciones de este tipo de alimento", "Advertencia", 2);
+					this.cereales_list.deselect(indices[2]);
+				}
+			} else {
+				JOptionPane.showMessageDialog(null, "Has sobrepasado las calorias recomendadas.", "Plan Alimenticio", JOptionPane.WARNING_MESSAGE);
+				this.cereales_list.deselect(indices[indices.length - 1]);
+			}
+		}
+        
+		indices = this.cereales_list.getSelectedIndexes();
         this.cereales_selected_items = indices;
-        this.cseleccionadas_cereales = getCaloriasSeleccionadas(indices, 
-                this.calorias_cereales);
-        this.cseleccionadas_cereales_lbl.setText("" + 
-                this.cseleccionadas_cereales);
-
+        this.cseleccionadas_cereales = getCaloriasSeleccionadas(indices, this.calorias_cereales);
+        this.cseleccionadas_cereales_lbl.setText("" + this.cseleccionadas_cereales);             
         this.cseleccionadas_totales = (this.cseleccionadas_lacteos + 
                 this.cseleccionadas_cereales + this.cseleccionadas_frutas + 
                 this.cseleccionadas_otros);
@@ -437,19 +466,28 @@ public class Desayuno extends javax.swing.JFrame {
 
     private void otros_listMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_otros_listMouseClicked
         int []indices = this.otros_list.getSelectedIndexes();
-        if(this.cseleccionadas_totales <= this.CxD) {
-            if(indices.length > 2) {
-                JOptionPane.showMessageDialog(null, "No se debe seleccionar más de "
-                        + "2 raciones de este tipo de alimento", "Advertencia", 2);
-                this.otros_list.deselect(indices[2]);
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Has sobrepasado las calorias recomendadas.", "Plan Alimenticio", JOptionPane.WARNING_MESSAGE);
-            this.cereales_list.deselect(indices[indices.length - 1]);
-        }
+		System.out.println("\n\nLista: OTROS");
+		System.out.println("\tIndices temp: " + indices.length);
+		System.out.println("\tIndices Lact: " + this.otros_selected_items.length);
+        if(this.otros_selected_items.length  > indices.length) {
+			System.out.println("\t\tEliminado");
+		}else {
+			System.out.println("\t\tAgregado");
+			if(this.cseleccionadas_totales <= this.CxD) {
+				if(indices.length > 2) {
+					JOptionPane.showMessageDialog(null, "No se debe seleccionar más de "
+							+ "2 raciones de este tipo de alimento", "Advertencia", 2);
+					this.otros_list.deselect(indices[2]);
+				}
+			} else {
+				JOptionPane.showMessageDialog(null, "Has sobrepasado las calorias recomendadas.", "Plan Alimenticio", JOptionPane.WARNING_MESSAGE);
+				this.otros_list.deselect(indices[indices.length - 1]);
+			}
+		}
+        
+		indices = this.otros_list.getSelectedIndexes();
         this.otros_selected_items = indices;
-        this.cseleccionadas_otros = getCaloriasSeleccionadas(indices, 
-                this.calorias_otros);
+        this.cseleccionadas_otros = getCaloriasSeleccionadas(indices, this.calorias_otros);
         this.cseleccionadas_otros_lbl.setText("" + this.cseleccionadas_otros);
 
         this.cseleccionadas_totales = (this.cseleccionadas_lacteos + 
@@ -464,16 +502,26 @@ public class Desayuno extends javax.swing.JFrame {
 
     private void frutas_listMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_frutas_listMouseClicked
         int []indices = this.frutas_list.getSelectedIndexes();
-        if(this.cseleccionadas_totales <= this.CxD) {
-            if(indices.length > 2) {
-                JOptionPane.showMessageDialog(null, "No se debe seleccionar más de "
-                        + "2 raciones de este tipo de alimento", "Advertencia", 2);
-                this.frutas_list.deselect(indices[2]);
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Has sobrepasado las calorias recomendadas.", "Plan Alimenticio", JOptionPane.WARNING_MESSAGE);
-            this.cereales_list.deselect(indices[indices.length - 1]);
-        }
+		System.out.println("\n\nLista: FRUTAS");
+		System.out.println("\tIndices temp: " + indices.length);
+		System.out.println("\tIndices Lact: " + this.frutas_selected_items.length);
+        if(this.frutas_selected_items.length  > indices.length) {
+			System.out.println("\t\tEliminado");
+		}else {
+			System.out.println("\t\tAgregado");
+			if(this.cseleccionadas_totales <= this.CxD) {
+				if(indices.length > 2) {
+					JOptionPane.showMessageDialog(null, "No se debe seleccionar más de "
+							+ "2 raciones de este tipo de alimento", "Advertencia", 2);
+					this.frutas_list.deselect(indices[2]);
+				}
+			} else {
+				JOptionPane.showMessageDialog(null, "Has sobrepasado las calorias recomendadas.", "Plan Alimenticio", JOptionPane.WARNING_MESSAGE);
+				this.frutas_list.deselect(indices[indices.length - 1]);
+			}
+		}
+        
+		indices = this.frutas_list.getSelectedIndexes();
         this.frutas_selected_items = indices;
         this.cseleccionadas_frutas = getCaloriasSeleccionadas(indices, 
                 this.calorias_frutas);
@@ -488,7 +536,7 @@ public class Desayuno extends javax.swing.JFrame {
                 + this.cseleccionadas_cereales + this.cseleccionadas_frutas 
                 + this.cseleccionadas_otros));
     }//GEN-LAST:event_frutas_listMouseClicked
-
+    int pressed = 0;
     /**
      * Funcion para llenar las listas
      * clausula: "Tipo='Algo' OR ... etc"
@@ -547,7 +595,7 @@ public class Desayuno extends javax.swing.JFrame {
     private javax.swing.JLabel cfaltantes_lbl;
     private javax.swing.JLabel cseleccionadas_cereales_lbl;
     private javax.swing.JLabel cseleccionadas_frutas_lbl;
-    private javax.swing.JLabel cseleccionadas_lacteos_frutas_lbl;
+    private javax.swing.JLabel cseleccionadas_lacteos_lbl;
     private javax.swing.JLabel cseleccionadas_otros_lbl;
     private javax.swing.JLabel cseleccionadas_total_lbl;
     private javax.swing.JLabel ctotales_lbl;
