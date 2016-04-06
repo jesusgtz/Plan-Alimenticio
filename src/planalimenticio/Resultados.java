@@ -11,10 +11,10 @@ import javax.swing.JOptionPane;
  * Creates new form Resultados
  * @author FRK
  */
-public class Resultados extends javax.swing.JFrame {
+public final class Resultados extends javax.swing.JFrame {
 
-    private String [] comidas;
-    private double CxD;
+    private final String [] comidas;
+    private final double CxD;
     
     /**
      * Constructor

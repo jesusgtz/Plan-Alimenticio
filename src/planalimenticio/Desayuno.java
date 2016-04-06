@@ -15,8 +15,9 @@ import javax.swing.JLabel;
  */
 public class Desayuno extends javax.swing.JFrame {
 	
-    private final String[] comidas = new String [5];
-    private final int indiceResult = 0;
+    private String[] comidas = new String [5];
+    private int indiceResult = 0;
+    int potatoe = 0;
     private Connect con;
     private ResultSet lacteos;
     private ResultSet cereales;
@@ -61,10 +62,10 @@ public class Desayuno extends javax.swing.JFrame {
         this.cseleccionadas_total_lbl.setText("0.0");
         this.cfaltantes_lbl.setText("0.0");
 
-        this.lacteos_selected_items = new int[0];
-        this.cereales_selected_items = new int[0];
-        this.frutas_selected_items = new int[0];
-        this.otros_selected_items = new int[0];
+        this.lacteos_selected_items = new int [0];
+        this.cereales_selected_items = new int [0];
+        this.frutas_selected_items = new int [0];
+        this.otros_selected_items = new int [0];
         
         ToList toList = loadLists("Tipo='Lacteos'");
         this.calorias_lacteos = toList.getArray();
@@ -360,9 +361,11 @@ public class Desayuno extends javax.swing.JFrame {
 
 
     private void btnSiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSiguienteMouseClicked
-        if(	this.lacteos_selected_items.length==0 &&
-			this.cereales_selected_items.length==0 &&
-			this.frutas_selected_items.length==0 ) {
+        int[] lacteos =  this.lacteos_list.getSelectedIndexes();
+        int[] cereales = this.cereales_list.getSelectedIndexes();
+        int[] frutas = this.frutas_list.getSelectedIndexes();
+        int[] otros = this.otros_list.getSelectedIndexes();
+        if(lacteos.length==0 && cereales.length==0 && frutas.length==0 || otros.length==0) {
             JOptionPane.showMessageDialog(null, "Debe seleccionar al menos un "
                     + "alimento", "Advertencia", 2);
         } else {
@@ -418,7 +421,6 @@ public class Desayuno extends javax.swing.JFrame {
                 this.calorias_lacteos);
         this.cseleccionadas_lacteos_lbl.setText("" + 
                 this.cseleccionadas_lacteos);
-
         this.cseleccionadas_totales = (this.cseleccionadas_lacteos + 
                 this.cseleccionadas_cereales + this.cseleccionadas_frutas + 
                 this.cseleccionadas_otros);
@@ -450,11 +452,8 @@ public class Desayuno extends javax.swing.JFrame {
         
 		indices = this.cereales_list.getSelectedIndexes();
         this.cereales_selected_items = indices;
-        this.cseleccionadas_cereales = getCaloriasSeleccionadas(indices, 
-                this.calorias_cereales);
-        this.cseleccionadas_cereales_lbl.setText("" + 
-                this.cseleccionadas_cereales);
-
+        this.cseleccionadas_cereales = getCaloriasSeleccionadas(indices, this.calorias_cereales);
+        this.cseleccionadas_cereales_lbl.setText("" + this.cseleccionadas_cereales);             
         this.cseleccionadas_totales = (this.cseleccionadas_lacteos + 
                 this.cseleccionadas_cereales + this.cseleccionadas_frutas + 
                 this.cseleccionadas_otros);
@@ -488,8 +487,7 @@ public class Desayuno extends javax.swing.JFrame {
         
 		indices = this.otros_list.getSelectedIndexes();
         this.otros_selected_items = indices;
-        this.cseleccionadas_otros = getCaloriasSeleccionadas(indices, 
-                this.calorias_otros);
+        this.cseleccionadas_otros = getCaloriasSeleccionadas(indices, this.calorias_otros);
         this.cseleccionadas_otros_lbl.setText("" + this.cseleccionadas_otros);
 
         this.cseleccionadas_totales = (this.cseleccionadas_lacteos + 
@@ -538,7 +536,7 @@ public class Desayuno extends javax.swing.JFrame {
                 + this.cseleccionadas_cereales + this.cseleccionadas_frutas 
                 + this.cseleccionadas_otros));
     }//GEN-LAST:event_frutas_listMouseClicked
-
+    int pressed = 0;
     /**
      * Funcion para llenar las listas
      * clausula: "Tipo='Algo' OR ... etc"
