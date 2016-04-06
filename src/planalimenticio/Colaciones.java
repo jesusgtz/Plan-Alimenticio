@@ -345,24 +345,31 @@ public class Colaciones extends javax.swing.JFrame {
 
     private void lacteos_frutas_listMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lacteos_frutas_listMouseClicked
         int[] indices = this.lacteos_frutas_list.getSelectedIndexes();
-		if(this.cseleccionadas_totales <= this.CxD) {
-			if(indices.length > 2) {
-				JOptionPane.showMessageDialog(null, "No se debe seleccionar más de "
-						+ "2 raciones de este tipo de alimento", "Plan Alimenticio - Advertencia", JOptionPane.WARNING_MESSAGE);
-				this.lacteos_frutas_list.deselect(indices[2]);
-			}
-		} else {
-			JOptionPane.showMessageDialog(null, "Has sobrepasado las calorias recomendadas.", "Plan Alimenticio", JOptionPane.WARNING_MESSAGE);
-			this.lacteos_frutas_list.deselect(indices[indices.length - 1]);
-		}
+       if(this.lacteos_frutas_selected_items.length  > indices.length) {
+			//System.out.println("\t\tEliminado");
+        }else {
+            //System.out.println("\t\tAgregado");
+            if(this.cseleccionadas_totales <= this.CxD) {
+                    if(indices.length > 2) {
+                            JOptionPane.showMessageDialog(null, "No se debe seleccionar más de "
+                                            + "2 raciones de este tipo de alimento", "Advertencia", 2);
+                            this.lacteos_frutas_list.deselect(indices[2]);
+                    }
+            } else {
+                    JOptionPane.showMessageDialog(null, "Has sobrepasado las calorias recomendadas.", "Plan Alimenticio", JOptionPane.WARNING_MESSAGE);
+                    this.lacteos_frutas_list.deselect(indices[indices.length - 1]);
+            }
+        }
+       
+        indices = this.lacteos_frutas_list.getSelectedIndexes();
 		
-		this.lacteos_frutas_selected_items = this.lacteos_frutas_list.getSelectedIndexes();
-		this.cseleccionadas_lacteos_frutas = getCaloriasSeleccionadas(this.lacteos_frutas_selected_items, this.calorias_lacteos_frutas);
-		this.cseleccionadas_lacteos_frutas_lbl.setText("" + this.cseleccionadas_lacteos_frutas);
+        this.lacteos_frutas_selected_items = this.lacteos_frutas_list.getSelectedIndexes();
+        this.cseleccionadas_lacteos_frutas = getCaloriasSeleccionadas(this.lacteos_frutas_selected_items, this.calorias_lacteos_frutas);
+        this.cseleccionadas_lacteos_frutas_lbl.setText("" + this.cseleccionadas_lacteos_frutas);
 
-		this.cseleccionadas_totales = (this.cseleccionadas_lacteos_frutas + this.cseleccionadas_cereales + this.cseleccionadas_otros);
-		this.setCaloriasFaltantes(this.cfaltantes_lbl, this.cseleccionadas_totales, this.CxD);
-		this.cseleccionadas_total_lbl.setText("" + this.cseleccionadas_totales);
+        this.cseleccionadas_totales = (this.cseleccionadas_lacteos_frutas + this.cseleccionadas_cereales + this.cseleccionadas_otros);
+        this.setCaloriasFaltantes(this.cfaltantes_lbl, this.cseleccionadas_totales, this.CxD);
+        this.cseleccionadas_total_lbl.setText("" + this.cseleccionadas_totales);
     }//GEN-LAST:event_lacteos_frutas_listMouseClicked
 
     private void cereales_listMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cereales_listMouseClicked
@@ -389,25 +396,31 @@ public class Colaciones extends javax.swing.JFrame {
 
     private void otros_listMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_otros_listMouseClicked
         int []indices = this.otros_list.getSelectedIndexes();
+        if(this.otros_selected_items.length  > indices.length) {
+			//System.out.println("\t\tEliminado");
+        }else {
+            //System.out.println("\t\tAgregado");
+            if(this.cseleccionadas_totales <= this.CxD) {
+                    if(indices.length > 2) {
+                            JOptionPane.showMessageDialog(null, "No se debe seleccionar más de "
+                                            + "2 raciones de este tipo de alimento", "Advertencia", 2);
+                            this.otros_list.deselect(indices[2]);
+                    }
+            } else {
+                    JOptionPane.showMessageDialog(null, "Has sobrepasado las calorias recomendadas.", "Plan Alimenticio", JOptionPane.WARNING_MESSAGE);
+                    this.otros_list.deselect(indices[indices.length - 1]);
+            }
+        }
+       
+        indices = this.otros_list.getSelectedIndexes();
+		
+        this.otros_selected_items = this.otros_list.getSelectedIndexes();
+        this.cseleccionadas_otros = getCaloriasSeleccionadas(this.otros_selected_items, this.calorias_otros);
+        this.cseleccionadas_otros_lbl.setText("" + this.cseleccionadas_otros);
 
-		if(this.cseleccionadas_totales <= this.CxD) {
-			if(indices.length > 2) {
-				JOptionPane.showMessageDialog(null, "No se debe seleccionar más de "
-						+ "2 raciones de este tipo de alimento", "Advertencia", 2);
-				this.otros_list.deselect(indices[2]);
-			}
-		} else {
-			JOptionPane.showMessageDialog(null, "Has sobrepasado las calorias recomendadas.", "Plan Alimenticio", JOptionPane.WARNING_MESSAGE);
-			this.otros_list.deselect(indices[indices.length - 1]);
-		}
-		
-		this.otros_selected_items = this.otros_list.getSelectedIndexes();
-		this.cseleccionadas_otros = getCaloriasSeleccionadas(this.otros_selected_items, this.calorias_otros);
-		this.cseleccionadas_otros_lbl.setText("" + this.cseleccionadas_otros);
-		
-		this.cseleccionadas_totales = (this.cseleccionadas_lacteos_frutas + this.cseleccionadas_cereales + this.cseleccionadas_otros);
-		this.setCaloriasFaltantes(this.cfaltantes_lbl, this.cseleccionadas_totales, this.CxD);
-		this.cseleccionadas_total_lbl.setText("" + (this.cseleccionadas_lacteos_frutas + this.cseleccionadas_cereales + this.cseleccionadas_otros));
+        this.cseleccionadas_totales = (this.cseleccionadas_lacteos_frutas + this.cseleccionadas_cereales + this.cseleccionadas_otros);
+        this.setCaloriasFaltantes(this.cfaltantes_lbl, this.cseleccionadas_totales, this.CxD);
+        this.cseleccionadas_total_lbl.setText("" + (this.cseleccionadas_lacteos_frutas + this.cseleccionadas_cereales + this.cseleccionadas_otros));
     }//GEN-LAST:event_otros_listMouseClicked
 	
 	private ToList loadLists(String clausula) { // clausula: "Tipo='Algo' OR ... etc"
