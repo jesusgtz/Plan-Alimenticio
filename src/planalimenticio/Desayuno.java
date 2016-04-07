@@ -365,7 +365,7 @@ public class Desayuno extends javax.swing.JFrame {
         int[] cereales = this.cereales_list.getSelectedIndexes();
         int[] frutas = this.frutas_list.getSelectedIndexes();
         int[] otros = this.otros_list.getSelectedIndexes();
-        if(lacteos.length==0 && cereales.length==0 && frutas.length==0 || otros.length==0) {
+        if(lacteos.length==0 && cereales.length==0 && frutas.length==0 && otros.length==0) {
             JOptionPane.showMessageDialog(null, "Debe seleccionar al menos un "
                     + "alimento", "Advertencia", 2);
         } else {
