@@ -424,7 +424,7 @@ public class Comida extends javax.swing.JFrame {
             for(int i=0;i<comida.length;i++)aux += comida[i]+", ";
             aux +=";"+ cseleccionadas_totales;
             comidas[2] = aux;
-            Colaciones colacion1 = new Colaciones(this.CxD / .25, 1, comidas);
+            Colaciones colacion1 = new Colaciones(this.CxD / .35, 1, comidas);
             colacion1.setVisible(true);
             this.dispose();
         }
